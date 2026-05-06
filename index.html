@@ -222,6 +222,36 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);display:flex;f
 .vc-btn.sel .vc-sub{color:var(--c);opacity:.8}
 .vc-label{text-align:center;color:var(--dim);font-size:.72rem;font-weight:700;margin-top:14px;letter-spacing:.05em}
 
+/* ── Settings drawer (导出/导入存档 + 语音诊断) ── */
+.set-overlay{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.7);display:flex;flex-direction:column;justify-content:flex-end;animation:fadeIn .18s ease}
+.set-sheet{background:#141428;border:1px solid var(--border);border-radius:28px 28px 0 0;padding:18px 18px 0;max-height:88vh;display:flex;flex-direction:column;animation:slideUp .26s cubic-bezier(.34,1.1,.64,1)}
+.set-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-shrink:0}
+.set-title{font-family:var(--fd);font-size:1.2rem;font-weight:800}
+.set-close{background:rgba(255,255,255,.08);border:none;color:var(--text);width:32px;height:32px;border-radius:50%;font-size:1.1rem;font-weight:800;cursor:pointer}
+.set-body{overflow-y:auto;flex:1;padding-bottom:max(env(safe-area-inset-bottom),16px)}
+.set-section{margin-bottom:18px}
+.set-section-t{font-size:.72rem;font-weight:800;color:var(--dim);letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px}
+.set-row{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px;margin-bottom:8px}
+.set-row-t{font-size:.92rem;font-weight:800;margin-bottom:3px}
+.set-row-d{font-size:.74rem;color:var(--dim);line-height:1.45}
+.set-btn{background:linear-gradient(135deg,var(--c),var(--b));color:#111;border:none;border-radius:50px;padding:10px 18px;font-family:var(--fd);font-size:.88rem;font-weight:800;cursor:pointer;width:100%;margin-top:8px}
+.set-btn.alt{background:rgba(255,255,255,.08);color:var(--text);border:1px solid var(--border)}
+.set-btn.warn{background:linear-gradient(135deg,#FF6B35,#FF4757);color:#fff}
+.set-btn:active{transform:scale(.97)}
+.set-code{background:#0a0a18;border:1px solid var(--border);border-radius:10px;padding:10px;font-family:monospace;font-size:.7rem;color:var(--c);word-break:break-all;line-height:1.5;max-height:90px;overflow-y:auto;margin-top:8px}
+.set-input{width:100%;background:#0a0a18;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:10px;font-family:monospace;font-size:.72rem;resize:vertical;min-height:80px;margin-top:8px;box-sizing:border-box}
+.set-toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:700;z-index:400;box-shadow:0 4px 16px rgba(0,0,0,.5);animation:toastIn .25s ease}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
+.voice-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.voice-item{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 10px}
+.voice-item.cur{border-color:var(--c);background:rgba(78,205,196,.1)}
+.voice-name{flex:1;font-size:.78rem;font-weight:700;line-height:1.3;word-break:break-word}
+.voice-tag{font-size:.6rem;color:var(--y);font-weight:700;display:block;margin-top:2px}
+.voice-play{flex-shrink:0;background:rgba(78,205,196,.2);border:1px solid var(--c);color:var(--c);border-radius:50%;width:32px;height:32px;font-size:.85rem;cursor:pointer}
+.voice-pick{flex-shrink:0;background:rgba(255,217,61,.2);border:1px solid var(--y);color:var(--y);border-radius:50px;padding:4px 10px;font-size:.7rem;font-weight:800;cursor:pointer}
+.voice-pick.cur{background:var(--g);color:#111;border-color:var(--g)}
+.set-help{font-size:.72rem;color:var(--dim);line-height:1.6;background:rgba(255,217,61,.06);border-left:3px solid var(--y);padding:8px 12px;border-radius:6px;margin-top:8px}
+.set-help b{color:var(--y)}
 
 </style>
 </head>
@@ -247,10 +277,12 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);display:flex;f
   <div class="total-stars" id="totalStars"></div>
   <div class="vc-label">🔊 选择语音</div>
   <div class="voice-chooser" id="voiceChooser">
-    <button class="vc-btn" data-e="siri"><span class="vc-ico">🍎</span>Siri<span class="vc-sub">系统自带</span></button>
+    <button class="vc-btn" data-e="system"><span class="vc-ico">🍎</span>系统语音<span class="vc-sub">iPad自带</span></button>
     <button class="vc-btn" data-e="google"><span class="vc-ico">🌐</span>Google<span class="vc-sub">在线女声</span></button>
-    <button class="vc-btn" data-e="minimax"><span class="vc-ico">✨</span>MiniMax<span class="vc-sub">少女甜美</span></button>
   </div>
+  <button id="btnSettings" style="margin-top:14px;background:transparent;border:1px solid var(--border);color:var(--dim);border-radius:50px;padding:8px 18px;font-family:var(--fb);font-size:.82rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px">
+    <span>⚙️</span><span>更多设置 · 进度备份</span>
+  </button>
 </div>
 
 <!-- LEVEL SELECT -->
@@ -367,38 +399,69 @@ var SFX={
 document.addEventListener('touchstart',function(){try{ac().resume()}catch(e){}},{once:true});
 
 // ═══════════════════════════════════
-// SPEECH — Browser TTS with iOS fix
+// SPEECH — Smart iOS voice + Google fallback
 // ═══════════════════════════════════
+// Strategy:
+//   - VOICE_ENGINE = 'system' | 'google'
+//   - 'system': Web Speech API. Picks best Chinese voice on the device.
+//               On iPad Safari, downloaded "Premium/Enhanced" voices score highest.
+//               iOS Chrome can NOT access these — must use Safari for best quality.
+//   - 'google': Google Translate TTS (online; may be slow/blocked in some networks)
+//   - User can override the auto-pick via diagnostic panel; selection saved to localStorage
+var _allVoices=[];
 var _bestVoice=null;
+var VOICE_NAME=(function(){try{return localStorage.getItem('voiceName')||''}catch(e){return ''}})();
+function setVoiceName(n){VOICE_NAME=n||'';try{localStorage.setItem('voiceName',VOICE_NAME)}catch(e){}}
+
+function isCantonese(v){return /cantonese|yue|zh-HK|hong.?kong/i.test((v.name||'')+' '+(v.lang||''))}
+function scoreVoice(v){
+  var n=v.name||'',l=v.lang||'';
+  if(isCantonese(v))return -1;
+  if(!l.startsWith('zh'))return -1;
+  var s=0;
+  if(l==='zh-CN'||l==='zh-Hans'||l==='zh-Hans-CN')s+=100;
+  else s+=20;
+  // Premium/Enhanced/Neural — these are downloaded high-quality voices
+  if(/premium|enhanced|neural|高清|增强/i.test(n))s+=200;
+  // Known good female mainland Mandarin voices
+  if(/tingting|ting-ting|婷婷/i.test(n))s+=80;
+  if(/xiaoxiao|xiaoyi|xiaomo|晓晓|晓伊/i.test(n))s+=80;
+  if(/sinji|思琪|li-mu|li mu/i.test(n))s+=70;
+  if(/yating|meijia|美佳|雅婷|语嫣|yaoyao/i.test(n))s+=70;
+  if(/female|woman|girl|女/i.test(n))s+=30;
+  return s;
+}
+
 function loadVoices(){
-  var vs=window.speechSynthesis?window.speechSynthesis.getVoices():[];
-  function bad(v){return /cantonese|yue|zh-HK|hong.?kong/i.test(v.name+v.lang)}
-  function score(v){
-    if(bad(v))return -1;
-    var s=0,n=v.name,l=v.lang||'';
-    if(l==='zh-CN')s+=100;
-    if(/tingting|ting-ting/i.test(n))s+=80;
-    if(/xiaoxiao|xiaoyi|xiaomo/i.test(n))s+=80;
-    if(/female|woman|girl/i.test(n))s+=30;
-    if(/siri/i.test(n)&&l==='zh-CN')s+=50;
-    if(l.startsWith('zh')&&!bad(v))s+=20;
-    return s;
+  if(!window.speechSynthesis)return;
+  _allVoices=window.speechSynthesis.getVoices()||[];
+  // Honor user's manual choice if it's in the list
+  if(VOICE_NAME){
+    var picked=_allVoices.find(function(v){return v.name===VOICE_NAME});
+    if(picked){_bestVoice=picked;return}
   }
-  var zh=vs.filter(function(v){return v.lang&&v.lang.startsWith('zh')&&!bad(v)});
-  if(!zh.length)zh=vs;
-  zh.sort(function(a,b){return score(b)-score(a)});
+  var zh=_allVoices.filter(function(v){return scoreVoice(v)>0}).sort(function(a,b){return scoreVoice(b)-scoreVoice(a)});
   _bestVoice=zh[0]||null;
 }
-if(window.speechSynthesis){loadVoices();window.speechSynthesis.onvoiceschanged=loadVoices}
 
-// ── Voice engine selection (3 options) ──
-// Stored in localStorage: 'voiceEngine' = 'siri' | 'google' | 'minimax'
-var VOICE_ENGINE = (function(){
-  try{var v=localStorage.getItem('voiceEngine');return v||'siri'}catch(e){return 'siri'}
+function listChineseVoices(){
+  if(!window.speechSynthesis)return [];
+  var vs=window.speechSynthesis.getVoices()||[];
+  return vs.filter(function(v){return scoreVoice(v)>0}).sort(function(a,b){return scoreVoice(b)-scoreVoice(a)});
+}
+
+if(window.speechSynthesis){
+  loadVoices();
+  window.speechSynthesis.onvoiceschanged=loadVoices;
+  // iOS Safari sometimes needs nudges — retry several times
+  [200,800,2000,4000].forEach(function(d){setTimeout(loadVoices,d)});
+}
+
+var VOICE_ENGINE=(function(){
+  try{var v=localStorage.getItem('voiceEngine');return (v==='google'||v==='system')?v:'system'}catch(e){return 'system'}
 })();
 function setVoiceEngine(e){VOICE_ENGINE=e;try{localStorage.setItem('voiceEngine',e)}catch(err){}}
 
-var MM_KEY='sk-cp-X4BmunDKU8HGvWzc_tLBu4T496A2wpH8t-x14pFVGohWTr2oybZMf1JwKpTQetFlumeXkVvkcs1pm9d0rWcKuucMIcFLkaXIB8r94QcaWgytq5nTo9IYBu4';
 var _playingAudio=null;
 
 function stopSpeech(){
@@ -406,22 +469,26 @@ function stopSpeech(){
   if(window.speechSynthesis)window.speechSynthesis.cancel();
 }
 
-// Main entry — tries selected engine, falls back to Siri if online engine fails
 function speak(text,onEnd){
   stopSpeech();
   if(VOICE_ENGINE==='google') speakGoogle(text,onEnd);
-  else if(VOICE_ENGINE==='minimax') speakMiniMax(text,onEnd);
-  else speakSiri(text,onEnd);
+  else speakSystem(text,onEnd);
 }
 
-// 1) Siri / iOS browser TTS
-function speakSiri(text,onEnd){
+// System voice (Web Speech API)
+// specificVoiceName: optional override (used by diagnostic preview)
+function speakSystem(text,onEnd,specificVoiceName){
   if(!window.speechSynthesis){if(onEnd)onEnd();return}
   window.speechSynthesis.cancel();
   setTimeout(function(){
     var u=new SpeechSynthesisUtterance(text);
-    u.lang='zh-CN';u.rate=.88;u.pitch=1.15;u.volume=1;
-    if(_bestVoice)u.voice=_bestVoice;
+    u.lang='zh-CN';u.rate=.9;u.pitch=1.05;u.volume=1;
+    var voice=null;
+    if(specificVoiceName){
+      voice=_allVoices.find(function(v){return v.name===specificVoiceName});
+    }
+    if(!voice)voice=_bestVoice;
+    if(voice)u.voice=voice;
     var done=false;
     var safe=setTimeout(function(){if(!done){done=true;if(onEnd)onEnd()}},Math.max(text.length*180,3000));
     u.onend=u.onerror=function(){if(!done){done=true;clearTimeout(safe);if(onEnd)onEnd()}};
@@ -429,54 +496,18 @@ function speakSiri(text,onEnd){
   },80);
 }
 
-// 2) Google Translate TTS — free CDN, no auth needed
+// Google Translate TTS — online, no auth, may be slow/blocked in some networks
 function speakGoogle(text,onEnd){
   var url='https://translate.google.com/translate_tts?ie=UTF-8&tl=zh-CN&client=tw-ob&q='+encodeURIComponent(text);
   _playingAudio=new Audio(url);
   _playingAudio.onended=function(){if(onEnd)onEnd()};
   _playingAudio.onerror=function(){
-    console.warn('[Google TTS] failed, falling back to Siri');
-    speakSiri(text,onEnd);
+    console.warn('[Google TTS] failed, falling back to system');
+    speakSystem(text,onEnd);
   };
   _playingAudio.play().catch(function(e){
     console.warn('[Google TTS] play blocked:',e.message);
-    speakSiri(text,onEnd);
-  });
-}
-
-// 3) MiniMax TTS — 甜美少女声 (may hit CORS, falls back to Google)
-function speakMiniMax(text,onEnd){
-  var ctrl=new AbortController();
-  var timeout=setTimeout(function(){ctrl.abort()},8000);
-
-  fetch('https://api.minimax.io/v1/t2a_v2',{
-    method:'POST',
-    signal:ctrl.signal,
-    headers:{'Content-Type':'application/json','Authorization':'Bearer '+MM_KEY},
-    body:JSON.stringify({
-      model:'speech-02-hd',
-      text:text,
-      stream:false,
-      output_format:'url',
-      voice_setting:{voice_id:'female-shaonv',speed:0.95,vol:1,pitch:3},
-      audio_setting:{sample_rate:32000,bitrate:128000,format:'mp3'},
-      language_boost:'Chinese'
-    })
-  }).then(function(r){
-    clearTimeout(timeout);
-    if(!r.ok)throw new Error('HTTP '+r.status);
-    return r.json();
-  }).then(function(data){
-    var audioUrl=(data.data&&data.data.audio)||data.audio_file;
-    if(!audioUrl)throw new Error('no url in response');
-    _playingAudio=new Audio(audioUrl);
-    _playingAudio.onended=function(){if(onEnd)onEnd()};
-    _playingAudio.onerror=function(){speakGoogle(text,onEnd)};
-    _playingAudio.play().catch(function(){speakGoogle(text,onEnd)});
-  }).catch(function(e){
-    clearTimeout(timeout);
-    console.warn('[MiniMax] failed:',e.message,'→ Google fallback');
-    speakGoogle(text,onEnd);
+    speakSystem(text,onEnd);
   });
 }
 
@@ -900,15 +931,16 @@ function renderHome(){
       setVoiceEngine(b.dataset.e);
       document.querySelectorAll('#voiceChooser .vc-btn').forEach(function(x){x.classList.remove('sel')});
       b.classList.add('sel');
-      // Test the voice
       var testMsg={
-        siri:'你好，我是系统语音',
-        google:'你好，我是谷歌语音',
-        minimax:'你好，我是少女甜美声音'
+        system:'你好，我是系统语音',
+        google:'你好，我是谷歌语音'
       }[b.dataset.e];
       speak(testMsg);
     };
   });
+  // Settings button
+  var btnS=document.getElementById('btnSettings');
+  if(btnS) btnS.onclick=function(){SFX.tap();openSettings()};
   show('sHome');
 }
 
@@ -1225,6 +1257,238 @@ function confetti(n){
     wrap.appendChild(p);
   }
   setTimeout(function(){wrap.remove()},2900);
+}
+
+// ═══════════════════════════════════
+// SETTINGS DRAWER — voice diagnostic + save/restore progress
+// ═══════════════════════════════════
+function toast(msg){
+  var t=document.createElement('div');
+  t.className='set-toast';
+  t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .3s'},1800);
+  setTimeout(function(){t.remove()},2200);
+}
+
+// ── Save code format: MSP2-YYYYMMDD-HHMM-base64data ──
+function pad(n){return n<10?'0'+n:''+n}
+function makeSaveCode(){
+  var d=new Date();
+  var ts=d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'-'+pad(d.getHours())+pad(d.getMinutes());
+  var raw=localStorage.getItem('msp2')||'{}';
+  var b64;
+  try{
+    // Use unescape+encodeURIComponent trick to support non-ASCII (just in case)
+    b64=btoa(unescape(encodeURIComponent(raw)));
+  }catch(e){b64=btoa(raw)}
+  return 'MSP2-'+ts+'-'+b64;
+}
+function parseSaveCode(code){
+  code=(code||'').trim();
+  // Be lenient: strip whitespace, allow code with or without prefix
+  if(!/^MSP2-/.test(code))return null;
+  var m=code.match(/^MSP2-(\d{8})-(\d{4})-([A-Za-z0-9+/=]+)$/);
+  if(!m)return null;
+  var date=m[1],time=m[2],b64=m[3];
+  try{
+    var raw=decodeURIComponent(escape(atob(b64)));
+    var data=JSON.parse(raw);
+    var totalStars=Object.values(data).reduce(function(s,v){return s+((v&&v.stars)||0)},0);
+    var pretty=date.slice(0,4)+'-'+date.slice(4,6)+'-'+date.slice(6,8)+' '+time.slice(0,2)+':'+time.slice(2,4);
+    return {data:data,raw:raw,when:pretty,stars:totalStars};
+  }catch(e){return null}
+}
+function currentTotalStars(){
+  try{
+    var p=JSON.parse(localStorage.getItem('msp2')||'{}');
+    return Object.values(p).reduce(function(s,v){return s+((v&&v.stars)||0)},0);
+  }catch(e){return 0}
+}
+
+function openSettings(){
+  var ov=document.createElement('div');
+  ov.className='set-overlay';
+  ov.innerHTML=
+    '<div class="set-sheet">'
+    +'<div class="set-head">'
+    +'<div class="set-title">⚙️ 设置</div>'
+    +'<button class="set-close" id="setClose">×</button>'
+    +'</div>'
+    +'<div class="set-body" id="setBody"></div>'
+    +'</div>';
+  document.body.appendChild(ov);
+  document.getElementById('setClose').onclick=function(){SFX.tap();stopSpeech();ov.remove()};
+  ov.addEventListener('click',function(e){if(e.target===ov){stopSpeech();ov.remove()}});
+  renderSettingsBody(document.getElementById('setBody'));
+}
+
+function renderSettingsBody(body){
+  var stars=currentTotalStars();
+  body.innerHTML=
+    // Section 1: Save / Restore
+    '<div class="set-section">'
+    +'<div class="set-section-t">📦 进度备份</div>'
+    +'<div class="set-row">'
+    +'<div class="set-row-t">📤 导出存档</div>'
+    +'<div class="set-row-d">把当前进度（'+stars+' ⭐）打包成一段代码，复制或通过邮件发给自己，下次在新设备上导入即可恢复。</div>'
+    +'<button class="set-btn" id="btnExport">生成存档码</button>'
+    +'<div id="exportArea"></div>'
+    +'</div>'
+    +'<div class="set-row">'
+    +'<div class="set-row-t">📥 导入存档</div>'
+    +'<div class="set-row-d">从邮件复制存档码粘贴进来，确认后恢复进度。</div>'
+    +'<textarea class="set-input" id="importInput" placeholder="MSP2-..."></textarea>'
+    +'<button class="set-btn alt" id="btnImport">检查并导入</button>'
+    +'<div id="importArea"></div>'
+    +'</div>'
+    +'</div>'
+    // Section 2: Voice diagnostic
+    +'<div class="set-section">'
+    +'<div class="set-section-t">🔊 语音诊断与试听</div>'
+    +'<div class="set-row">'
+    +'<div class="set-row-t">当前可用的中文语音</div>'
+    +'<div class="set-row-d">点 ▶ 试听每个语音，找到最好听的，点"用这个"锁定为默认。</div>'
+    +'<div id="voiceList" class="voice-list"></div>'
+    +'<div class="set-help" id="voiceHelp"></div>'
+    +'</div>'
+    +'</div>';
+
+  // Export handler
+  document.getElementById('btnExport').onclick=function(){
+    SFX.tap();
+    var code=makeSaveCode();
+    var ea=document.getElementById('exportArea');
+    ea.innerHTML=
+      '<div class="set-code" id="setCodeBox">'+code+'</div>'
+      +'<div style="display:flex;gap:8px;margin-top:8px">'
+      +'<button class="set-btn alt" id="btnCopy" style="margin:0;flex:1">📋 复制存档码</button>'
+      +'<button class="set-btn" id="btnEmail" style="margin:0;flex:1">📧 邮件发送</button>'
+      +'</div>';
+    document.getElementById('btnCopy').onclick=function(){
+      SFX.tap();
+      copyToClipboard(code,function(ok){toast(ok?'已复制到剪贴板':'复制失败，请长按手动复制')});
+    };
+    document.getElementById('btnEmail').onclick=function(){
+      SFX.tap();
+      var subj=encodeURIComponent('数学星球存档 '+code.split('-').slice(1,3).join(' '));
+      var bodyTxt=encodeURIComponent(
+        '数学星球进度存档\n'
+        +'生成时间：'+new Date().toLocaleString()+'\n'
+        +'当前总星星数：'+stars+' ⭐\n\n'
+        +'恢复方法：在数学星球点 ⚙️ → 导入存档，把下面这串代码粘贴进去：\n\n'
+        +code+'\n'
+      );
+      // mailto: opens mail app, user fills the recipient
+      window.location.href='mailto:?subject='+subj+'&body='+bodyTxt;
+    };
+  };
+
+  // Import handler
+  document.getElementById('btnImport').onclick=function(){
+    SFX.tap();
+    var input=document.getElementById('importInput').value;
+    var parsed=parseSaveCode(input);
+    var ia=document.getElementById('importArea');
+    if(!parsed){
+      ia.innerHTML='<div class="set-help" style="border-left-color:var(--r);background:rgba(255,71,87,.08)"><b style="color:var(--r)">无法识别存档码</b><br>请确认完整复制了 MSP2- 开头的整段。</div>';
+      return;
+    }
+    var nowStars=currentTotalStars();
+    var warn=parsed.stars<nowStars?
+      '<div class="set-help" style="border-left-color:var(--r);background:rgba(255,71,87,.08)"><b style="color:var(--r)">⚠️ 注意</b>：这个存档只有 '+parsed.stars+' ⭐，比当前 '+nowStars+' ⭐ 少。导入后会覆盖当前进度。</div>'
+      :'';
+    ia.innerHTML=
+      '<div class="set-help"><b>检查通过</b><br>'
+      +'存档时间：'+parsed.when+'<br>'
+      +'星星数：'+parsed.stars+' ⭐<br>'
+      +'当前进度：'+nowStars+' ⭐</div>'
+      +warn
+      +'<button class="set-btn warn" id="btnConfirmImport" style="margin-top:8px">确认导入并覆盖</button>';
+    document.getElementById('btnConfirmImport').onclick=function(){
+      SFX.tap();
+      try{
+        localStorage.setItem('msp2',parsed.raw);
+        G.prog=parsed.data;
+        toast('✅ 进度已恢复');
+        document.getElementById('importInput').value='';
+        // Re-render the settings body to reflect new star count
+        setTimeout(function(){renderSettingsBody(body)},400);
+      }catch(e){
+        toast('保存失败：'+e.message);
+      }
+    };
+  };
+
+  // Voice list
+  renderVoiceList();
+}
+
+function renderVoiceList(){
+  var list=document.getElementById('voiceList');
+  var help=document.getElementById('voiceHelp');
+  if(!list)return;
+  var voices=listChineseVoices();
+  if(voices.length===0){
+    list.innerHTML='<div style="text-align:center;color:var(--dim);padding:14px;font-size:.78rem">没有检测到中文语音</div>';
+    help.innerHTML='<b>没有找到中文语音？</b><br>'
+      +'1. 用 <b>Safari</b> 打开（iPad Chrome 调不到系统语音）<br>'
+      +'2. iPad 设置 → 辅助功能 → 朗读内容 → 声音 → 中文 → 下载"婷婷增强版"等高级语音<br>'
+      +'3. 下载完彻底关闭 Safari 再重开';
+    return;
+  }
+  list.innerHTML=voices.map(function(v){
+    var isPicked=(VOICE_NAME===v.name)||(!VOICE_NAME && _bestVoice && _bestVoice.name===v.name);
+    var isPremium=/premium|enhanced|neural|高清|增强/i.test(v.name);
+    return '<div class="voice-item'+(isPicked?' cur':'')+'">'
+      +'<div class="voice-name">'+v.name+(isPremium?'<span class="voice-tag">⭐ 高品质</span>':'')+'<div style="font-size:.65rem;color:var(--dim)">'+v.lang+'</div></div>'
+      +'<button class="voice-play" data-n="'+encodeURIComponent(v.name)+'" data-act="play">▶</button>'
+      +'<button class="voice-pick'+(isPicked?' cur':'')+'" data-n="'+encodeURIComponent(v.name)+'" data-act="pick">'+(isPicked?'✓ 默认':'用这个')+'</button>'
+      +'</div>';
+  }).join('');
+  list.querySelectorAll('button').forEach(function(b){
+    b.onclick=function(){
+      SFX.tap();
+      var name=decodeURIComponent(b.dataset.n);
+      var act=b.dataset.act;
+      if(act==='play'){
+        // Force system engine for preview, regardless of current setting
+        stopSpeech();
+        speakSystem('你好，我是数学星球的语音老师，三加五等于八',null,name);
+      }else{
+        setVoiceName(name);
+        // Force system engine when user manually picks a voice
+        setVoiceEngine('system');
+        loadVoices();
+        // Refresh home voice chooser display next time
+        renderVoiceList();
+        toast('已设为默认语音');
+      }
+    };
+  });
+  // Help text
+  var pre=voices.filter(function(v){return /premium|enhanced|neural|高清|增强/i.test(v.name)});
+  if(pre.length>0){
+    help.innerHTML='<b>共找到 '+voices.length+' 个中文语音，其中 '+pre.length+' 个是高品质语音</b>。试听后选最喜欢的一个作为默认。';
+  }else{
+    help.innerHTML='<b>提示</b>：没有检测到"高品质"语音。可在 iPad 设置 → 辅助功能 → 朗读内容 → 声音 → 中文 中下载"婷婷增强版"等高级语音，下载后<b>彻底关闭 Safari 再重开</b>本页面。';
+  }
+}
+
+function copyToClipboard(text,cb){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){cb(true)},function(){fallbackCopy()});
+  }else{fallbackCopy()}
+  function fallbackCopy(){
+    try{
+      var ta=document.createElement('textarea');
+      ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();
+      var ok=document.execCommand('copy');
+      document.body.removeChild(ta);
+      cb(ok);
+    }catch(e){cb(false)}
+  }
 }
 
 // ═══════════════════════════════════
