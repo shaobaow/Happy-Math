@@ -50,13 +50,30 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);display:flex;f
   background:linear-gradient(135deg,var(--y),var(--o),#FF6B9D);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:6px}
 .app-sub{color:var(--dim);font-size:.9rem;margin-top:4px;font-weight:700}
-.mod-grid{width:100%;max-width:400px;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.mod-card{background:var(--card);border:1px solid var(--border);border-radius:22px;
-  padding:20px 14px;cursor:pointer;text-align:center;transition:transform .15s;backdrop-filter:blur(10px)}
+.mod-grid{width:100%;max-width:440px;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.mod-card{background:var(--card);border:1px solid var(--border);border-radius:18px;
+  padding:14px 10px;cursor:pointer;text-align:center;transition:transform .15s;backdrop-filter:blur(10px);position:relative}
 .mod-card:active{transform:scale(.93)}
-.mod-card .ico{font-size:36px;display:block;margin-bottom:8px}
-.mod-card .nm{font-family:var(--fd);font-size:1rem;font-weight:800}
-.mod-card .sb{font-size:.7rem;color:var(--dim);margin-top:3px}
+.mod-card .ico{font-size:30px;display:block;margin-bottom:5px}
+.mod-card .nm{font-family:var(--fd);font-size:.95rem;font-weight:800}
+.mod-card .mod-en{font-size:.62rem;color:#a78bfa;font-weight:700;letter-spacing:.04em;margin-top:1px;font-family:var(--fb)}
+.mod-card .sb{font-size:.66rem;color:var(--dim);margin-top:2px}
+/* level card bilingual */
+.lv-en{font-size:.68rem;color:#a78bfa;font-weight:700;font-family:var(--fb);margin-top:1px;letter-spacing:.03em}
+/* grade tab bilingual */
+.gt-en{font-size:.58rem;color:rgba(255,255,255,.55);font-weight:700;font-family:var(--fb);display:block;margin-top:1px}
+.gt-btn.sel .gt-en{color:rgba(0,0,0,.55)}
+/* question label bilingual */
+.q-lbl-en{font-size:.6rem;color:#a78bfa;font-weight:700;font-family:var(--fb);margin-left:4px;letter-spacing:.04em}
+.mod-card .lvc{position:absolute;top:6px;right:8px;font-size:.62rem;color:var(--dim);font-weight:700}
+.mod-card.empty{opacity:.35;pointer-events:none}
+/* grade tabs */
+.grade-tabs{width:100%;max-width:440px;display:flex;gap:6px;margin-top:8px;justify-content:center;flex-wrap:wrap}
+.gt-btn{background:var(--card);border:1.5px solid var(--border);color:var(--text);border-radius:50px;padding:7px 14px;font-family:var(--fd);font-size:.82rem;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .15s}
+.gt-btn:active{transform:scale(.94)}
+.gt-btn.sel{background:linear-gradient(135deg,var(--y),var(--o));color:#111;border-color:transparent;box-shadow:0 4px 14px rgba(255,217,61,.35)}
+.gt-btn .gt-sub{font-size:.62rem;font-weight:700;opacity:.7}
+.gt-btn.sel .gt-sub{opacity:.85}
 .total-stars{margin-top:24px;text-align:center;color:var(--dim);font-size:.82rem}
 .total-stars b{font-family:var(--fd);font-size:1.4rem;font-weight:800;color:var(--text);display:block;margin-top:2px}
 
@@ -209,6 +226,83 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);display:flex;f
 .c-dot{font-size:clamp(.85rem,2.8vw,1.2rem)}
 .c-sep{color:var(--dim);font-size:.88rem;margin:0 2px}
 
+/* ── New module styles ── */
+/* Word problems */
+.wp-scene{background:rgba(255,255,255,.04);border-radius:14px;padding:14px;margin:8px 0 12px;text-align:center;min-height:80px}
+.wp-scene-row{font-size:1.6rem;line-height:1.6;display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
+.wp-scene-plus{font-size:1.3rem;color:var(--y);font-weight:900;margin:4px 0}
+.wp-emoji-big{font-size:3.2rem;display:inline-block}
+.wp-em{font-size:1.6rem}
+.wp-text{font-size:.96rem;line-height:1.6;color:var(--text);background:rgba(255,217,61,.08);border-left:3px solid var(--y);padding:10px 12px;border-radius:8px;text-align:left;margin:8px 0 4px}
+/* Number sense */
+.sense-cmp{display:flex;align-items:center;justify-content:center;gap:18px;margin:18px 0}
+.sense-num{font-family:var(--fd);font-size:3.5rem;font-weight:900;color:var(--c);background:rgba(78,205,196,.1);width:90px;height:90px;display:flex;align-items:center;justify-content:center;border-radius:18px;border:2px solid var(--c)}
+.sense-op{font-family:var(--fd);font-size:3rem;font-weight:900;color:var(--y);min-width:50px;text-align:center}
+.ten-frame{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;width:100%;max-width:240px;margin:14px auto;padding:6px;background:rgba(255,255,255,.04);border-radius:8px}
+.ten-cell{aspect-ratio:1;border:2px solid var(--border);border-radius:6px;background:transparent}
+.ten-cell.f{background:var(--y);border-color:var(--y)}
+.num-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0;padding:8px}
+.num-bubble{font-family:var(--fd);font-size:2rem;font-weight:900;background:rgba(78,205,196,.15);color:var(--c);width:60px;height:60px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:2px solid var(--c)}
+.big-num{font-family:var(--fd);font-size:5rem;font-weight:900;text-align:center;color:var(--y);margin:14px 0;line-height:1}
+.pv-row{display:flex;justify-content:center;gap:14px;margin:14px 0}
+.pv-cell{background:rgba(255,255,255,.06);border:2px solid var(--border);border-radius:14px;padding:10px 18px;min-width:80px;text-align:center}
+.pv-lbl{font-size:.74rem;color:var(--dim);font-weight:700}
+.pv-val{font-family:var(--fd);font-size:2rem;font-weight:900;margin-top:3px}
+.estimate-cloud{font-size:1.1rem;line-height:1.4;text-align:center;padding:14px;background:rgba(255,217,61,.06);border-radius:14px;max-width:300px;margin:8px auto;letter-spacing:1px}
+.estimate-dot{display:inline-block;margin:1px}
+/* Measure */
+.bar-graph{display:flex;flex-direction:column;gap:6px;padding:10px;background:rgba(255,255,255,.04);border-radius:12px;margin:10px 0}
+.bg-row{display:flex;gap:3px;align-items:center;font-size:1.4rem}
+.bg-cell{display:inline-block}
+/* Geometry */
+.big-emoji{font-size:5rem;text-align:center;margin:10px 0;line-height:1.2}
+.compose-q{font-family:var(--fd);font-size:1.4rem;font-weight:800;text-align:center;margin:14px 0;color:var(--c)}
+/* Logic */
+.pattern-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:18px 0}
+.pat-num{font-family:var(--fd);font-size:2.2rem;font-weight:900;background:rgba(78,205,196,.15);color:var(--c);width:60px;height:60px;display:flex;align-items:center;justify-content:center;border-radius:14px;border:2px solid var(--c)}
+.pat-num.pat-q{color:var(--y);background:rgba(255,217,61,.15);border-color:var(--y)}
+.pat-arrow{font-size:1.4rem;color:var(--dim);font-weight:900}
+.oo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;max-width:320px;margin:0 auto}
+.oo-item{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:18px;font-size:2.2rem;text-align:center;cursor:pointer;transition:transform .15s}
+.oo-item:active{transform:scale(.94)}
+.oo-item.ok{background:rgba(107,203,119,.28);border-color:var(--g);animation:cPop .3s ease}
+.oo-item.ng{background:rgba(255,71,87,.2);border-color:var(--r);animation:wShake .3s ease}
+.tf-stmt{font-family:var(--fd);font-size:1.4rem;font-weight:800;text-align:center;background:rgba(255,255,255,.06);border-radius:14px;padding:18px;margin:10px 0;line-height:1.4}
+.hints-list{background:rgba(78,205,196,.08);border-radius:12px;padding:10px 14px;margin:10px 0}
+.hint-line{font-size:.95rem;line-height:1.7;color:var(--text);font-weight:700}
+/* Skip-thinking button (核心:跟着家长学讲思路开关) */
+.fb-skip-btn{background:transparent;border:1px solid var(--border);color:var(--dim);
+  border-radius:50px;padding:6px 14px;font-family:var(--fb);font-size:.74rem;font-weight:700;
+  cursor:pointer;display:inline-flex;align-items:center;gap:5px;margin-bottom:6px;align-self:flex-start}
+.fb-skip-btn:active{transform:scale(.95)}
+.fb-skip-btn.hidden-mode{background:rgba(255,217,61,.12);border-color:var(--y);color:var(--y)}
+/* rmb / position / new question styles */
+.rmb-q{font-family:var(--fd);font-size:1.2rem;font-weight:800;line-height:1.5;text-align:center;
+  background:rgba(78,205,196,.08);border:1px solid rgba(78,205,196,.25);border-radius:14px;
+  padding:16px 14px;margin:10px 0}
+.pos-scene{font-size:2.5rem;text-align:center;margin:16px 0}
+/* Knowledge map screen */
+#sMap{padding:10px 12px}
+.map-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-shrink:0}
+.map-title{font-family:var(--fd);font-size:1.3rem;font-weight:900}
+.map-back{background:rgba(255,255,255,.1);border:none;color:var(--text);border-radius:50%;
+  width:36px;height:36px;font-size:1.1rem;cursor:pointer;flex-shrink:0}
+.map-svg-wrap{flex:1;overflow:auto;-webkit-overflow-scrolling:touch}
+.map-node{cursor:pointer}
+.map-node circle{transition:r .2s,filter .2s}
+.map-node:hover circle{filter:brightness(1.3)}
+.map-popup{position:fixed;bottom:0;left:0;right:0;z-index:300;background:#1a1a2e;
+  border:1px solid var(--border);border-radius:22px 22px 0 0;padding:18px;
+  animation:slideUp .25s cubic-bezier(.34,1.1,.64,1)}
+.mp-title{font-family:var(--fd);font-size:1.1rem;font-weight:900;margin-bottom:4px}
+.mp-grade{font-size:.72rem;color:var(--dim);font-weight:700;margin-bottom:8px}
+.mp-desc{font-size:.85rem;line-height:1.6;margin-bottom:12px}
+.mp-status{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.mp-btn{background:linear-gradient(135deg,var(--c),var(--b));color:#111;border:none;
+  border-radius:50px;padding:10px 20px;font-family:var(--fd);font-size:.9rem;font-weight:800;
+  cursor:pointer;width:100%}
+.mp-btn.locked{background:rgba(255,255,255,.1);color:var(--dim);cursor:default}
+
 /* Voice engine selector */
 .voice-chooser{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;width:100%;max-width:400px}
 .vc-btn{flex:1;min-width:95px;background:var(--card);border:2px solid var(--border);
@@ -262,18 +356,8 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);display:flex;f
 <!-- HOME -->
 <div class="screen on" id="sHome">
   <div class="home-hero" id="homeHero"></div>
-  <div class="mod-grid">
-    <div class="mod-card" id="btnAdd">
-      <span class="ico">➕</span>
-      <div class="nm">加减法</div>
-      <div class="sb">10 → 20 → 50 → 100</div>
-    </div>
-    <div class="mod-card" id="btnMul">
-      <span class="ico">✖️</span>
-      <div class="nm">乘除法</div>
-      <div class="sb">口诀 → 理解 → 掌握</div>
-    </div>
-  </div>
+  <div class="grade-tabs" id="gradeTabs"></div>
+  <div class="mod-grid" id="modGrid"></div>
   <div class="total-stars" id="totalStars"></div>
   <div class="vc-label">🔊 选择语音</div>
   <div class="voice-chooser" id="voiceChooser">
@@ -283,6 +367,9 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);display:flex;f
   <button id="btnSettings" style="margin-top:14px;background:transparent;border:1px solid var(--border);color:var(--dim);border-radius:50px;padding:8px 18px;font-family:var(--fb);font-size:.82rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px">
     <span>⚙️</span><span>更多设置 · 进度备份</span>
   </button>
+  <button id="btnMap" style="margin-top:8px;background:linear-gradient(135deg,#1a1a3e,#2d1b69);border:1px solid #6C63FF55;color:var(--text);border-radius:50px;padding:9px 20px;font-family:var(--fd);font-size:.88rem;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(108,99,255,.25)">
+    <span>🌌</span><span>知识星图</span><span style="font-size:.7rem;color:#a78bfa;font-weight:700">探索所有知识点</span>
+  </button>
 </div>
 
 <!-- LEVEL SELECT -->
@@ -291,6 +378,16 @@ body{font-family:var(--fb);background:var(--bg);color:var(--text);display:flex;f
   <div class="s-title" id="lvTitle"></div>
   <div class="s-sub">选择关卡开始挑战</div>
   <div class="lv-list" id="lvList"></div>
+</div>
+
+<!-- KNOWLEDGE MAP -->
+<div class="screen" id="sMap">
+  <div class="map-header">
+    <button class="map-back" id="mapBack">←</button>
+    <div class="map-title">🌌 知识星图</div>
+  </div>
+  <div style="font-size:.75rem;color:var(--dim);margin-bottom:8px;text-align:center">点击星星查看知识点 · 金色=已掌握 · 灰色=待解锁</div>
+  <div class="map-svg-wrap" id="mapSvgWrap"></div>
 </div>
 
 <!-- GAME -->
@@ -617,6 +714,101 @@ function buildSVG(w,h,cfg,pose){
 function heroSVG(w,h,pose){return buildSVG(w,h,curHero(),pose)}
 
 // ═══════════════════════════════════
+// SVG HELPERS for new modules (shapes, clocks, scenes, number lines)
+// ═══════════════════════════════════
+function shapeInline(kind,size){
+  size=size||40;
+  var s=size,half=s/2;
+  switch(kind){
+    case 'circle':    return '<circle cx="'+half+'" cy="'+half+'" r="'+(half-2)+'" fill="#FF6B9D"/>';
+    case 'triangle':  return '<polygon points="'+half+',2 '+(s-2)+','+(s-2)+' 2,'+(s-2)+'" fill="#FFD93D"/>';
+    case 'square':    return '<rect x="2" y="2" width="'+(s-4)+'" height="'+(s-4)+'" fill="#4CC9F0"/>';
+    case 'rectangle': return '<rect x="2" y="'+(half-half/2)+'" width="'+(s-4)+'" height="'+half+'" fill="#6BCB77"/>';
+    case 'star':      return '<polygon points="'+half+',2 '+(half+5)+','+(half-5)+' '+(s-2)+','+(half-3)+' '+(half+7)+','+(half+3)+' '+(half+10)+','+(s-2)+' '+half+','+(half+8)+' '+(half-10)+','+(s-2)+' '+(half-7)+','+(half+3)+' 2,'+(half-3)+' '+(half-5)+','+(half-5)+'" fill="#C77DFF"/>';
+    case 'heart':     return '<path d="M'+half+' '+(s-4)+' Q-2 '+(half-2)+' '+(half-7)+' 6 Q'+half+' 14 '+half+' '+(half-2)+' Q'+half+' 14 '+(half+7)+' 6 Q'+(s+2)+' '+(half-2)+' '+half+' '+(s-4)+'" fill="#FF4757"/>';
+    case 'hexagon':   var pts=[],r=half-2;for(var i=0;i<6;i++){var a=Math.PI/3*i-Math.PI/2;pts.push((half+r*Math.cos(a)).toFixed(1)+','+(half+r*Math.sin(a)).toFixed(1))}return '<polygon points="'+pts.join(' ')+'" fill="#FF6B35"/>';
+  }
+  return '';
+}
+function shapeSVG(kind,size){
+  return '<svg viewBox="0 0 '+size+' '+size+'" style="width:'+size+'px;height:'+size+'px;display:block;margin:14px auto;background:rgba(255,255,255,.04);border-radius:14px;padding:6px;box-sizing:border-box">'
+    +shapeInline(kind,size-12)
+    +'</svg>';
+}
+
+function clockSVG(h,m){
+  // Clock face 200x200
+  var hAngle=((h%12)+m/60)*30 - 90; // 12 = -90, 3 = 0
+  var mAngle=m*6 - 90;
+  var hRad=hAngle*Math.PI/180, mRad=mAngle*Math.PI/180;
+  var hx=100+50*Math.cos(hRad), hy=100+50*Math.sin(hRad);
+  var mx=100+72*Math.cos(mRad), my=100+72*Math.sin(mRad);
+  // 12 numbers around the clock
+  var nums='';
+  for(var i=1;i<=12;i++){
+    var a=(i*30-90)*Math.PI/180;
+    var x=100+82*Math.cos(a),y=100+82*Math.sin(a)+6;
+    nums+='<text x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Baloo 2">'+i+'</text>';
+  }
+  return '<svg viewBox="0 0 200 200" style="width:160px;height:160px;display:block;margin:8px auto">'
+    +'<circle cx="100" cy="100" r="92" fill="#fff" stroke="#FFD93D" stroke-width="6"/>'
+    +'<circle cx="100" cy="100" r="86" fill="#0d0d1e"/>'
+    +nums
+    +'<line x1="100" y1="100" x2="'+hx.toFixed(1)+'" y2="'+hy.toFixed(1)+'" stroke="#FF6B35" stroke-width="6" stroke-linecap="round"/>'
+    +'<line x1="100" y1="100" x2="'+mx.toFixed(1)+'" y2="'+my.toFixed(1)+'" stroke="#4CC9F0" stroke-width="3" stroke-linecap="round"/>'
+    +'<circle cx="100" cy="100" r="5" fill="#FFD93D"/>'
+    +'</svg>';
+}
+
+function numberLineSVG(target,max){
+  var W=280,M=20,L=W-2*M;
+  var ticks='';
+  var step=Math.max(1,Math.floor(max/10));
+  for(var i=0;i<=max;i+=step){
+    var x=M+(i/max)*L;
+    ticks+='<line x1="'+x+'" y1="40" x2="'+x+'" y2="55" stroke="#888" stroke-width="2"/>';
+    ticks+='<text x="'+x+'" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Baloo 2">'+i+'</text>';
+  }
+  var tx=M+(target/max)*L;
+  return '<svg viewBox="0 0 '+W+' 90" style="width:100%;max-width:300px;display:block;margin:14px auto">'
+    +'<line x1="'+M+'" y1="48" x2="'+(W-M)+'" y2="48" stroke="#fff" stroke-width="3"/>'
+    +ticks
+    +'<circle cx="'+tx+'" cy="48" r="9" fill="#FF4757"/>'
+    +'<circle cx="'+tx+'" cy="48" r="4" fill="#fff"/>'
+    +'</svg>';
+}
+
+// Word problem scene illustrations (lightweight emoji-based for simplicity)
+function wpSceneSVG(q){
+  var sc=q.scene,a=q.a,b=q.b;
+  var emoji={
+    rabbit:'🐰',bird:'🐦',fruit:'🍎',flower:'🌸',car:'🚗',
+    apple:'🍎',balloon:'🎈',cookie:'🍪',fish:'🐟',pencil:'✏️',
+    cmp:'⚖️',shop:'🛒',share:'🍪',mix:'🎁'
+  }[sc]||'⭐';
+  var html='<div class="wp-scene">';
+  // Show first quantity
+  if(q.cmp || q.share || q.money || q.multi){
+    html+='<div class="wp-scene-row"><span class="wp-emoji-big">'+emoji+'</span></div>';
+  } else {
+    var n1=Math.min(a,8),n2=Math.min(b||0,8);
+    html+='<div class="wp-scene-row">';
+    for(var i=0;i<n1;i++)html+='<span class="wp-em">'+emoji+'</span>';
+    html+='</div>';
+    if(b!==undefined && q.op==='+'){
+      html+='<div class="wp-scene-plus">+</div>';
+      html+='<div class="wp-scene-row">';
+      for(var i=0;i<n2;i++)html+='<span class="wp-em">'+emoji+'</span>';
+      html+='</div>';
+    } else if(b!==undefined && q.op==='-'){
+      // gray out the "taken" portion already drawn — visual hint
+    }
+  }
+  html+='</div>';
+  return html;
+}
+
+// ═══════════════════════════════════
 // DATA
 // ═══════════════════════════════════
 var FRUIT_PAIRS=[
@@ -627,34 +819,139 @@ var FRUIT_PAIRS=[
 ];
 function fruitPair(i){return FRUIT_PAIRS[i%FRUIT_PAIRS.length]}
 
+// ═══════════════════════════════════════════════════════════════════
+// MODULE / GRADE ARCHITECTURE
+// ═══════════════════════════════════════════════════════════════════
+// Each level has a `grade` tag: 'K' / 'G1' / 'G2' / 'G3'.
+// Levels are filtered on home screen by the user's selected grade.
+// `kind` tells the engine how to render and grade the level:
+//   'arith'  — generated arithmetic (the original 加减乘除)
+//   'word'   — word problem from a curated bank
+//   'sense'  — number sense (compare/order/estimate/place value)
+//   'measure'— length/time/data
+//   'geom'   — shapes/symmetry/spatial
+//   'logic'  — patterns/classification/reasoning
+// ═══════════════════════════════════════════════════════════════════
+
 var MODULES={
-  add:{name:'加减法',icon:'➕',color:'#4ECDC4',
+  add:{name:'加减法',en:'Add & Subtract',icon:'➕',color:'#4ECDC4',kind:'arith',
     levels:[
-      {id:'a1',nm:'10以内加法',ico:'🌱',ds:'苹果加橙子几个？',ops:['+'],max:10,rng:[1,9],vis:true,hint:'数一数有几个～'},
-      {id:'a2',nm:'10以内减法',ico:'🌿',ds:'拿走一些还剩几个？',ops:['-'],max:10,rng:[1,9],vis:true,hint:'想想拿走几个'},
-      {id:'a3',nm:'10以内混合',ico:'🌳',ds:'加减都来了！',ops:['+','-'],max:10,rng:[1,9],vis:true,hint:''},
-      {id:'a4',nm:'20以内加法',ico:'⭐',ds:'进位加法启蒙',ops:['+'],max:20,rng:[2,18],vis:false,hint:'凑成10更容易！'},
-      {id:'a5',nm:'20以内减法',ico:'🌙',ds:'退位减法不怕难',ops:['-'],max:20,rng:[2,18],vis:false,hint:'想想被减数'},
-      {id:'a6',nm:'20以内混合',ico:'🌟',ds:'加减全掌握',ops:['+','-'],max:20,rng:[2,18],vis:false,hint:''},
-      {id:'a7',nm:'50以内加法',ico:'🚀',ds:'两位数加法',ops:['+'],max:50,rng:[5,45],vis:false,hint:'十位个位分开算'},
-      {id:'a8',nm:'50以内减法',ico:'💫',ds:'两位数减法',ops:['-'],max:50,rng:[5,45],vis:false,hint:''},
-      {id:'a9',nm:'100以内加法',ico:'🏆',ds:'进阶大挑战',ops:['+'],max:100,rng:[10,90],vis:false,hint:''},
-      {id:'a10',nm:'100以内减法',ico:'👑',ds:'顶级高手',ops:['-'],max:100,rng:[10,90],vis:false,hint:''},
+      // K — 幼儿园(数感建立 + 5 以内)
+      {id:'a1',grade:'K',nm:'10以内加法',en:'Add within 10',ico:'🌱',ds:'苹果加橙子几个？',ops:['+'],max:10,rng:[1,9],vis:true,hint:'数一数有几个～'},
+      {id:'a2',grade:'K',nm:'10以内减法',en:'Subtract within 10',ico:'🌿',ds:'拿走一些还剩几个？',ops:['-'],max:10,rng:[1,9],vis:true,hint:'想想拿走几个'},
+      {id:'a3',grade:'K',nm:'10以内混合',en:'Add & Subtract',ico:'🌳',ds:'加减都来了！',ops:['+','-'],max:10,rng:[1,9],vis:true,hint:''},
+      // G1 — 一年级(20 以内 + 凑十/借十法)
+      {id:'a4',grade:'G1',nm:'20以内加法',en:'Add within 20',ico:'⭐',ds:'进位加法启蒙',ops:['+'],max:20,rng:[2,18],vis:false,hint:'凑成10更容易！'},
+      {id:'a5',grade:'G1',nm:'20以内减法',en:'Subtract within 20',ico:'🌙',ds:'退位减法不怕难',ops:['-'],max:20,rng:[2,18],vis:false,hint:'想想被减数'},
+      {id:'a6',grade:'G1',nm:'20以内混合',en:'Mixed Operations',ico:'🌟',ds:'加减全掌握',ops:['+','-'],max:20,rng:[2,18],vis:false,hint:''},
+      // G2 — 二年级(50/100 以内两位数)
+      {id:'a7',grade:'G2',nm:'50以内加法',en:'Add within 50',ico:'🚀',ds:'两位数加法',ops:['+'],max:50,rng:[5,45],vis:false,hint:'十位个位分开算'},
+      {id:'a8',grade:'G2',nm:'50以内减法',en:'Subtract within 50',ico:'💫',ds:'两位数减法',ops:['-'],max:50,rng:[5,45],vis:false,hint:''},
+      {id:'a9',grade:'G2',nm:'100以内加法',en:'Add within 100',ico:'🏆',ds:'进阶大挑战',ops:['+'],max:100,rng:[10,90],vis:false,hint:''},
+      {id:'a10',grade:'G2',nm:'100以内减法',en:'Subtract within 100',ico:'👑',ds:'顶级高手',ops:['-'],max:100,rng:[10,90],vis:false,hint:''},
     ]},
-  mul:{name:'乘除法',icon:'✖️',color:'#C77DFF',
+  mul:{name:'乘除法',en:'Multiply & Divide',icon:'✖️',color:'#C77DFF',kind:'arith',
     levels:[
-      {id:'m1',nm:'乘法理解',ico:'🌱',ds:'几组几个是多少',tbl:[2,3],ops:['×'],concept:true,hint:'3×4就是4个3相加'},
-      {id:'m2',nm:'2和3的乘法',ico:'🌿',ds:'乘法口诀练习',tbl:[2,3],ops:['×'],concept:false,hint:''},
-      {id:'m3',nm:'4和5的乘法',ico:'🌳',ds:'继续加油',tbl:[4,5],ops:['×'],concept:false,hint:''},
-      {id:'m4',nm:'6和7的乘法',ico:'⭐',ds:'难度提升',tbl:[6,7],ops:['×'],concept:false,hint:''},
-      {id:'m5',nm:'8和9的乘法',ico:'🌙',ds:'口诀达人',tbl:[8,9],ops:['×'],concept:false,hint:''},
-      {id:'m6',nm:'乘法综合',ico:'🌟',ds:'2-9全掌握',tbl:[2,9],ops:['×'],concept:false,hint:''},
-      {id:'m7',nm:'除法理解',ico:'🚀',ds:'平均分一分',tbl:[2,5],ops:['÷'],concept:true,hint:'12÷3=12里有几个3'},
-      {id:'m8',nm:'简单除法',ico:'💫',ds:'2-5除法口诀',tbl:[2,5],ops:['÷'],concept:false,hint:''},
-      {id:'m9',nm:'较难除法',ico:'🏆',ds:'6-9的除法',tbl:[6,9],ops:['÷'],concept:false,hint:''},
-      {id:'m10',nm:'乘除混合',ico:'👑',ds:'最终挑战',tbl:[2,9],ops:['×','÷'],concept:false,hint:''},
-    ]}
+      // G2 — 二年级(乘法启蒙 + 口诀)
+      {id:'m1',grade:'G2',nm:'乘法理解',en:'Multiplication',ico:'🌱',ds:'几组几个是多少',tbl:[2,3],ops:['×'],concept:true,hint:'3×4就是4个3相加'},
+      {id:'m2',grade:'G2',nm:'2和3的乘法',en:'Times 2 & 3',ico:'🌿',ds:'乘法口诀练习',tbl:[2,3],ops:['×'],concept:false,hint:''},
+      {id:'m3',grade:'G2',nm:'4和5的乘法',en:'Times 4 & 5',ico:'🌳',ds:'继续加油',tbl:[4,5],ops:['×'],concept:false,hint:''},
+      {id:'m4',grade:'G2',nm:'6和7的乘法',en:'Times 6 & 7',ico:'⭐',ds:'难度提升',tbl:[6,7],ops:['×'],concept:false,hint:''},
+      {id:'m5',grade:'G2',nm:'8和9的乘法',en:'Times 8 & 9',ico:'🌙',ds:'口诀达人',tbl:[8,9],ops:['×'],concept:false,hint:''},
+      {id:'m6',grade:'G2',nm:'乘法综合',en:'All Times Tables',ico:'🌟',ds:'2-9全掌握',tbl:[2,9],ops:['×'],concept:false,hint:''},
+      // G3 — 三年级(除法 + 综合)
+      {id:'m7',grade:'G3',nm:'除法理解',en:'Division',ico:'🚀',ds:'平均分一分',tbl:[2,5],ops:['÷'],concept:true,hint:'12÷3=12里有几个3'},
+      {id:'m8',grade:'G3',nm:'简单除法',en:'Divide by 2-5',ico:'💫',ds:'2-5除法口诀',tbl:[2,5],ops:['÷'],concept:false,hint:''},
+      {id:'m9',grade:'G3',nm:'较难除法',en:'Divide by 6-9',ico:'🏆',ds:'6-9的除法',tbl:[6,9],ops:['÷'],concept:false,hint:''},
+      {id:'m10',grade:'G3',nm:'乘除混合',en:'Mixed × ÷',ico:'👑',ds:'最终挑战',tbl:[2,9],ops:['×','÷'],concept:false,hint:''},
+    ]},
+
+  // ═══════════════════════════════════════════
+  // 🛒 生活数学 — Word Problems (Strategic Competence)
+  // ═══════════════════════════════════════════
+  word:{name:'生活数学',en:'Word Problems',icon:'🛒',color:'#FF6B35',kind:'word',
+    levels:[
+      {id:'w1',grade:'G1',nm:'一共多少',en:'How Many in All',ico:'🐰',ds:'合起来的故事',bank:'wp_combine'},
+      {id:'w2',grade:'G1',nm:'还剩多少',en:'How Many Left',ico:'🍎',ds:'拿走的故事',bank:'wp_takeaway'},
+      {id:'w3',grade:'G1',nm:'比多比少',en:'Compare Numbers',ico:'⚖️',ds:'谁多谁少多多少',bank:'wp_compare'},
+      {id:'w4',grade:'G1',nm:'购物找零',en:'Money & Change',ico:'💰',ds:'付钱找钱',bank:'wp_money'},
+      {id:'w5',grade:'G1',nm:'公平分一分',en:'Equal Sharing',ico:'🍪',ds:'平均分配',bank:'wp_share'},
+      {id:'w6',grade:'G2',nm:'综合应用',en:'Multi-step Problems',ico:'👑',ds:'多步骤问题',bank:'wp_mixed'},
+    ]},
+
+  // ═══════════════════════════════════════════
+  // 🔢 数感大师 — Number Sense (Conceptual Understanding)
+  // ═══════════════════════════════════════════
+  sense:{name:'数感大师',en:'Number Sense',icon:'🔢',color:'#4CC9F0',kind:'sense',
+    levels:[
+      // K — 数感启蒙
+      {id:'s0a',grade:'K',nm:'数数1到10',en:'Count 1 to 10',ico:'🌱',ds:'从1数到10',sub:'count10'},
+      {id:'s0b',grade:'K',nm:'上下左右',en:'Directions',ico:'🧭',ds:'认识方向',sub:'position'},
+      // G1 — 一年级(人教版：比大小/数位/凑十/人民币)
+      {id:'s1',grade:'G1',nm:'比大小',en:'Greater or Less',ico:'⚖️',ds:'谁大谁小',sub:'compare',rng:[1,20]},
+      {id:'s2',grade:'G1',nm:'数轴跳跳',en:'Number Line',ico:'📏',ds:'数字住在哪里',sub:'numberline',rng:[0,20]},
+      {id:'s3',grade:'G1',nm:'凑成十',en:'Make Ten',ico:'🎯',ds:'10的好朋友',sub:'maketen'},
+      {id:'s4',grade:'G1',nm:'数字接龙',en:'Order Numbers',ico:'🔗',ds:'从小到大排队',sub:'order',rng:[1,30]},
+      {id:'s5',grade:'G1',nm:'数位认识',en:'Place Value',ico:'🏠',ds:'十位和个位',sub:'placevalue',rng:[10,99]},
+      {id:'s7',grade:'G1',nm:'认识人民币',en:'Money (RMB)',ico:'💰',ds:'元角分',sub:'rmb'},
+      // G2 — 二年级
+      {id:'s6',grade:'G2',nm:'估一估',en:'Estimation',ico:'🤔',ds:'大概有多少',sub:'estimate'},
+      {id:'s8',grade:'G2',nm:'比大小(100以内)',en:'Compare within 100',ico:'⚖️',ds:'百以内谁大',sub:'compare',rng:[10,100]},
+    ]},
+
+  // ═══════════════════════════════════════════
+  // 📏 测量时间 — Measurement & Data (人教版对齐)
+  // ═══════════════════════════════════════════
+  measure:{name:'测量时间',en:'Measurement',icon:'📏',color:'#6BCB77',kind:'measure',
+    levels:[
+      {id:'me1',grade:'G1',nm:'谁更长',en:'Longer or Shorter',ico:'📏',ds:'比一比长短',sub:'compare_length'},
+      {id:'me2',grade:'G1',nm:'认识整时半时',en:'Telling Time',ico:'🕐',ds:'人教版一年级时间',sub:'clock_hour'},
+      {id:'me3',grade:'G1',nm:'看图表',en:'Read a Chart',ico:'📊',ds:'最多最少',sub:'graph'},
+      {id:'me5',grade:'G1',nm:'几月几日',en:'Calendar',ico:'📅',ds:'认识日历',sub:'calendar'},
+      {id:'me4',grade:'G2',nm:'几点几分',en:'Hours & Minutes',ico:'⏰',ds:'读出几点几分',sub:'clock_min'},
+      {id:'me6',grade:'G2',nm:'厘米和米',en:'cm & m',ico:'📐',ds:'长度单位',sub:'length_unit'},
+    ]},
+
+  // ═══════════════════════════════════════════
+  // 🎨 形状空间 — Geometry & Spatial (人教版对齐)
+  // ═══════════════════════════════════════════
+  geom:{name:'形状空间',en:'Shapes & Space',icon:'🎨',color:'#C77DFF',kind:'geom',
+    levels:[
+      {id:'g0',grade:'K',nm:'认识上下左右',en:'Up Down Left Right',ico:'🧭',ds:'我在哪里',sub:'directions'},
+      {id:'g1',grade:'G1',nm:'认识形状',en:'2D Shapes',ico:'🔺',ds:'圆形 三角 方形',sub:'identify'},
+      {id:'g2',grade:'G1',nm:'数一数形状',en:'Count Shapes',ico:'🔷',ds:'图里有几个三角',sub:'count'},
+      {id:'g3',grade:'G1',nm:'对称之美',en:'Symmetry',ico:'🦋',ds:'对折一样吗',sub:'symmetry'},
+      {id:'g5',grade:'G1',nm:'立体图形',en:'3D Shapes',ico:'🎲',ds:'正方体 球 圆柱',sub:'solid'},
+      {id:'g4',grade:'G2',nm:'拼一拼',en:'Compose Shapes',ico:'🧩',ds:'图形组合',sub:'compose'},
+    ]},
+
+  // ═══════════════════════════════════════════
+  // 🧠 逻辑思维 — Reasoning & Patterns
+  // ═══════════════════════════════════════════
+  logic:{name:'逻辑思维',en:'Logic & Thinking',icon:'🧠',color:'#FFD93D',kind:'logic',
+    levels:[
+      {id:'l0',grade:'K',nm:'找规律(图形)',en:'Shape Patterns',ico:'🔄',ds:'下一个形状',sub:'pattern_shape'},
+      {id:'l1',grade:'G1',nm:'找规律(数字)',en:'Number Patterns',ico:'🔢',ds:'下一个数',sub:'pattern'},
+      {id:'l2',grade:'G1',nm:'找不一样',en:'Odd One Out',ico:'🔍',ds:'谁和别人不同',sub:'oddout'},
+      {id:'l3',grade:'G1',nm:'判断对错',en:'True or False',ico:'✓',ds:'这样对吗',sub:'truefalse'},
+      {id:'l6',grade:'G1',nm:'排列顺序',en:'Sort & Order',ico:'📋',ds:'从小到大、先后',sub:'sort_logic'},
+      {id:'l4',grade:'G2',nm:'分类小能手',en:'Classify',ico:'📦',ds:'谁和谁是一伙',sub:'classify'},
+      {id:'l5',grade:'G2',nm:'数字侦探',en:'Number Detective',ico:'🕵️',ds:'我是几号',sub:'numguess'},
+      {id:'l7',grade:'G2',nm:'简单加法规律',en:'Arithmetic Patterns',ico:'✨',ds:'找加减规律',sub:'arith_pattern'},
+    ]},
 };
+
+// Module display order on home screen (within each grade)
+var MOD_ORDER=['add','mul','word','sense','measure','geom','logic'];
+
+// Grade definitions
+var GRADES={
+  K :{nm:'幼儿园',en:'Kindergarten',sub:'数感启蒙',color:'#FF6B9D',ico:'🌱'},
+  G1:{nm:'一年级',en:'Grade 1',    sub:'扎实基础',color:'#4ECDC4',ico:'⭐'},
+  G2:{nm:'二年级',en:'Grade 2',    sub:'综合运用',color:'#FFD93D',ico:'🌟'},
+  G3:{nm:'三年级',en:'Grade 3',    sub:'进阶挑战',color:'#C77DFF',ico:'🏆'},
+};
+var GRADE_ORDER=['K','G1','G2','G3'];
 
 var PRAISE=['超级棒！','厉害！','完美！','答对啦！','太聪明了！','太棒了！'];
 var OOPS=['再想想～','哎呀继续！','不要紧加油！','差一点再来！'];
@@ -707,16 +1004,435 @@ function genMul(lv,t){
   else{b=rnd(lv.tbl[0],lv.tbl[1]);ans=rnd(bMin,bMax);a=b*ans}
   return{a,b,op:op==='×'?'×':'÷',ans,type:'mul',lv};
 }
+
+// ═══════════════════════════════════
+// NEW QUESTION TYPES — Word / Sense / Measure / Geom / Logic
+// ═══════════════════════════════════
+
+// ── Word Problem Banks ──
+// Each entry is a template with {a},{b},{ans} placeholders and an SVG scene type
+var WP_BANKS={
+  // ── 合并(加法)— 12题 ──
+  wp_combine:[
+    {sc:'rabbit', t:'草地上有 {a} 只小兔，又跑来 {b} 只，一共有几只？',mk:function(){var a=rnd(2,7),b=rnd(2,8);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'bird',   t:'树上有 {a} 只小鸟，又飞来 {b} 只，一共有几只？',mk:function(){var a=rnd(2,8),b=rnd(2,7);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'fruit',  t:'盘子里有 {a} 个苹果和 {b} 个橘子，一共多少个水果？',mk:function(){var a=rnd(2,8),b=rnd(2,8);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'flower', t:'妈妈采了 {a} 朵红花和 {b} 朵黄花，一共采了多少朵？',mk:function(){var a=rnd(3,9),b=rnd(2,7);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'car',    t:'停车场有 {a} 辆小汽车，又开来 {b} 辆，现在有几辆？',mk:function(){var a=rnd(3,9),b=rnd(2,8);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'star',   t:'奥特曼收集了 {a} 颗能量星，又找到 {b} 颗，共有多少颗？',mk:function(){var a=rnd(4,9),b=rnd(3,8);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'zoo',    t:'动物园上午来了 {a} 位小朋友，下午又来了 {b} 位，共来了几位？',mk:function(){var a=rnd(5,12),b=rnd(4,10);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'book',   t:'书架上有 {a} 本故事书，又放上去 {b} 本，现在有几本？',mk:function(){var a=rnd(3,9),b=rnd(2,8);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'pencil', t:'文具盒里有 {a} 支铅笔，再放入 {b} 支，一共有几支？',mk:function(){var a=rnd(2,7),b=rnd(2,6);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'train',  t:'火车上有 {a} 位乘客，在车站又上来 {b} 位，现在共几位？',mk:function(){var a=rnd(6,14),b=rnd(3,9);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'candy',  t:'红色糖果 {a} 颗，绿色糖果 {b} 颗，一共多少颗？',mk:function(){var a=rnd(4,10),b=rnd(3,9);return{a:a,b:b,ans:a+b,op:'+'}}},
+    {sc:'fish',   t:'鱼缸里有 {a} 条金鱼，又买来 {b} 条，金鱼共几条？',mk:function(){var a=rnd(3,8),b=rnd(2,7);return{a:a,b:b,ans:a+b,op:'+'}}},
+  ],
+  // ── 减少(减法)— 12题 ──
+  wp_takeaway:[
+    {sc:'apple',  t:'盘子里有 {a} 个苹果，小熊吃掉了 {b} 个，还剩几个？',mk:function(){var a=rnd(5,12),b=rnd(2,Math.min(a-1,6));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'balloon',t:'小明有 {a} 个气球，飞走了 {b} 个，还剩几个？',mk:function(){var a=rnd(6,15),b=rnd(2,Math.min(a-2,7));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'cookie', t:'罐子里有 {a} 块饼干，吃了 {b} 块，还剩几块？',mk:function(){var a=rnd(5,15),b=rnd(2,Math.min(a-1,7));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'fish',   t:'池塘里有 {a} 条鱼，捞走了 {b} 条，还剩几条？',mk:function(){var a=rnd(6,12),b=rnd(2,Math.min(a-2,5));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'pencil', t:'笔筒有 {a} 支铅笔，借出 {b} 支，还剩几支？',mk:function(){var a=rnd(5,15),b=rnd(2,Math.min(a-1,7));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'star',   t:'奥特曼有 {a} 颗能量晶，用掉 {b} 颗打败怪兽，还剩几颗？',mk:function(){var a=rnd(8,16),b=rnd(2,Math.min(a-2,7));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'cake',   t:'生日蛋糕有 {a} 块，小朋友吃了 {b} 块，还剩几块？',mk:function(){var a=rnd(6,14),b=rnd(2,Math.min(a-2,6));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'flower', t:'花瓶里有 {a} 朵花，凋谢了 {b} 朵，还剩几朵？',mk:function(){var a=rnd(7,14),b=rnd(2,Math.min(a-2,6));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'book',   t:'图书馆借出了 {a} 本书，还回来 {b} 本，还有几本没还？',mk:function(){var a=rnd(6,14),b=rnd(2,Math.min(a-2,6));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'bird',   t:'电线上停着 {a} 只鸟，飞走了 {b} 只，还剩几只？',mk:function(){var a=rnd(7,14),b=rnd(2,Math.min(a-2,7));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'ice',    t:'冰箱里有 {a} 根冰淇淋，小朋友吃了 {b} 根，还剩几根？',mk:function(){var a=rnd(5,12),b=rnd(2,Math.min(a-1,5));return{a:a,b:b,ans:a-b,op:'-'}}},
+    {sc:'train',  t:'车上有 {a} 位乘客，到站下去 {b} 位，还有几位乘客？',mk:function(){var a=rnd(8,16),b=rnd(2,Math.min(a-3,8));return{a:a,b:b,ans:a-b,op:'-'}}},
+  ],
+  // ── 比较(比多少)— 10题 ──
+  wp_compare:[
+    {sc:'cmp',t:'小明有 {a} 颗糖，小红有 {b} 颗糖，小明比小红多几颗？',mk:function(){var a=rnd(6,14),b=rnd(2,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'红气球 {a} 个，蓝气球 {b} 个，蓝气球比红气球少几个？',mk:function(){var a=rnd(6,15),b=rnd(2,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'哥哥 {a} 岁，弟弟 {b} 岁，哥哥比弟弟大几岁？',mk:function(){var a=rnd(7,14),b=rnd(3,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'树上 {a} 只鸟，地上 {b} 只鸟，树上比地上多几只？',mk:function(){var a=rnd(7,15),b=rnd(2,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'小华跳绳跳了 {a} 下，小丽跳了 {b} 下，谁多跳了几下？',mk:function(){var a=rnd(10,18),b=rnd(4,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'甲筐有 {a} 个梨，乙筐有 {b} 个梨，甲筐比乙筐多几个？',mk:function(){var a=rnd(8,16),b=rnd(3,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'一班有 {a} 个同学，二班有 {b} 个同学，一班比二班多几个？',mk:function(){var a=rnd(15,25),b=rnd(10,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'小猫钓了 {a} 条鱼，小狗钓了 {b} 条，谁多钓了几条？',mk:function(){var a=rnd(7,14),b=rnd(2,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'图书馆有连环画 {a} 本，故事书 {b} 本，连环画比故事书多几本？',mk:function(){var a=rnd(10,20),b=rnd(5,a-2);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+    {sc:'cmp',t:'妈妈 {a} 岁，小明 {b} 岁，妈妈比小明大几岁？',mk:function(){var a=rnd(28,36),b=rnd(5,8);return{a:a,b:b,ans:a-b,op:'-',cmp:true}}},
+  ],
+  // ── 购物人民币 — 12题 ──
+  wp_money:[
+    {sc:'shop',t:'一瓶水 {a} 元，给阿姨 10 元，应该找回几元？',mk:function(){var a=rnd(2,7);return{a:a,b:10,ans:10-a,op:'-',money:true}}},
+    {sc:'shop',t:'面包 {a} 元，付 10 元，找回多少元？',mk:function(){var a=rnd(3,8);return{a:a,b:10,ans:10-a,op:'-',money:true}}},
+    {sc:'shop',t:'铅笔 {a} 角，给老板 1 元，找回几角？',mk:function(){var a=rnd(2,8);return{a:a,b:10,ans:10-a,op:'-',money:true,unit:'角'}}},
+    {sc:'shop',t:'冰淇淋 {a} 元，糖果 {b} 元，一共要付多少钱？',mk:function(){var a=rnd(3,8),b=rnd(2,6);return{a:a,b:b,ans:a+b,op:'+',money:true}}},
+    {sc:'shop',t:'文具盒 {a} 元，笔 {b} 元，共需多少元？',mk:function(){var a=rnd(5,9),b=rnd(2,5);return{a:a,b:b,ans:a+b,op:'+',money:true}}},
+    {sc:'shop',t:'苹果 {a} 元一斤，香蕉 {b} 元一斤，苹果比香蕉贵几元？',mk:function(){var a=rnd(6,12),b=rnd(2,a-2);return{a:a,b:b,ans:a-b,op:'-',money:true,cmp:true}}},
+    {sc:'shop',t:'小明有 {b} 元，想买一本 {a} 元的书，还差几元？',mk:function(){var a=rnd(8,15),b=rnd(3,a-2);return{a:a,b:b,ans:a-b,op:'-',money:true}}},
+    {sc:'shop',t:'1元硬币 {a} 个，5角硬币 {b} 个，一共有多少角？',mk:function(){var a=rnd(2,5),b=rnd(2,4);return{a:a,b:b,ans:a*10+b*5,op:'mix',money:true,unit:'角'}}},
+    {sc:'shop',t:'买文具花了 {a} 元，买零食花了 {b} 元，共花了多少元？',mk:function(){var a=rnd(4,9),b=rnd(3,8);return{a:a,b:b,ans:a+b,op:'+',money:true}}},
+    {sc:'shop',t:'妈妈给了小明 {b} 元，小明买玩具用了 {a} 元，还剩多少？',mk:function(){var a=rnd(5,12);var b=a+rnd(2,8);return{a:a,b:b,ans:b-a,op:'-',money:true}}},
+    {sc:'shop',t:'一张 {b} 元，一张 {a} 元，合起来多少元？',mk:function(){var vals=[1,2,5,10,20,50];var a=vals[rnd(0,3)],b=vals[rnd(0,4)];if(a===b)b=vals[rnd(0,4)];return{a:a,b:b,ans:a+b,op:'+',money:true}}},
+    {sc:'shop',t:'零花钱 {b} 元，买了 {a} 元的贴纸，还剩几元？',mk:function(){var a=rnd(3,7);var b=a+rnd(2,6);return{a:a,b:b,ans:b-a,op:'-',money:true}}},
+  ],
+  // ── 平均分 — 10题 ──
+  wp_share:[
+    {sc:'share',t:'{a} 块饼干，平均分给 {b} 个小朋友，每人几块？',mk:function(){var b=rnd(2,4);var k=rnd(2,5);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'{a} 颗糖，平均分给 {b} 个小朋友，每人几颗？',mk:function(){var b=rnd(2,5);var k=rnd(2,4);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'妈妈买了 {a} 个苹果，分给 {b} 个孩子，每人几个？',mk:function(){var b=rnd(2,4);var k=rnd(2,5);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'{a} 朵花平均插入 {b} 个花瓶，每个花瓶插几朵？',mk:function(){var b=rnd(2,4);var k=rnd(2,5);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'老师有 {a} 根铅笔，分给 {b} 个同学，每人几根？',mk:function(){var b=rnd(2,5);var k=rnd(2,4);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'{a} 颗草莓平均放在 {b} 个盘子里，每盘几颗？',mk:function(){var b=rnd(2,4);var k=rnd(3,6);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'班里 {a} 个同学，分成 {b} 组，每组几人？',mk:function(){var b=rnd(3,5);var k=rnd(3,6);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'{a} 张贴纸平均分给 {b} 个小朋友，每人几张？',mk:function(){var b=rnd(2,4);var k=rnd(3,6);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'妈妈烤了 {a} 块蛋糕，{b} 人分，每人吃几块？',mk:function(){var b=rnd(2,5);var k=rnd(2,4);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+    {sc:'share',t:'{a} 本书放到 {b} 个书架，每架几本？',mk:function(){var b=rnd(2,4);var k=rnd(3,6);var a=b*k;return{a:a,b:b,ans:k,op:'÷',share:true}}},
+  ],
+  // ── 综合多步 — 8题 ──
+  wp_mixed:[
+    {sc:'mix',t:'妈妈买了 {a} 个橘子，自己吃了 {b} 个，剩下分给 2 个孩子，每人几个？',mk:function(){var k=rnd(2,5);var b=rnd(1,3);var a=2*k+b;return{a:a,b:b,ans:k,op:'mix',multi:true}}},
+    {sc:'mix',t:'红花 {a} 朵，黄花 {b} 朵，再摘 {c} 朵蓝花，一共几朵？',mk:function(){var a=rnd(3,7),b=rnd(2,6),c=rnd(2,5);return{a:a,b:b,c:c,ans:a+b+c,op:'+',multi:true}}},
+    {sc:'mix',t:'有 {a} 元，买了 {b} 元的笔，剩下能买几个 {c} 元的橡皮？',mk:function(){var c=rnd(1,3);var k=rnd(2,4);var b=rnd(2,5);var a=b+c*k;return{a:a,b:b,c:c,ans:k,op:'mix',multi:true,money:true}}},
+    {sc:'mix',t:'操场上有 {a} 个同学，走了 {b} 个，又来了 {c} 个，现在有几个？',mk:function(){var a=rnd(10,18),b=rnd(3,7),c=rnd(2,6);return{a:a,b:b,c:c,ans:a-b+c,op:'mix',multi:true}}},
+    {sc:'mix',t:'书包里有课本 {a} 本，练习册 {b} 本，借给同学 {c} 本后还剩多少？',mk:function(){var a=rnd(4,8),b=rnd(3,6),c=rnd(1,3);return{a:a,b:b,c:c,ans:a+b-c,op:'mix',multi:true}}},
+    {sc:'mix',t:'奥特曼打倒了 {a} 只小怪兽，又打倒了 {b} 只大怪兽，逃跑了 {c} 只，还有多少只？',mk:function(){var a=rnd(5,9),b=rnd(3,7),c=rnd(2,4);return{a:a,b:b,c:c,ans:a+b-c,op:'mix',multi:true}}},
+    {sc:'mix',t:'班里男生 {a} 人，女生 {b} 人，分成 {c} 组，每组几人？',mk:function(){var c=rnd(2,4);var t=c*rnd(3,7);var a=Math.floor(t/2),b=t-a;return{a:a,b:b,c:c,ans:t/c,op:'mix',multi:true}}},
+    {sc:'mix',t:'小明有 {b} 元，买了 {a} 元的文具盒和 {c} 元的本子，还剩多少元？',mk:function(){var a=rnd(4,8),c=rnd(2,5);var b=a+c+rnd(1,5);return{a:a,b:b,c:c,ans:b-a-c,op:'mix',multi:true,money:true}}},
+  ]
+};
+
+function genWord(lv){
+  var bank=WP_BANKS[lv.bank];
+  if(!bank||bank.length===0)return null;
+  var tpl=bank[rnd(0,bank.length-1)];
+  var data=tpl.mk();
+  var text=tpl.t;
+  // Substitute placeholders
+  text=text.replace(/\{a\}/g,data.a).replace(/\{b\}/g,data.b);
+  if(data.c!==undefined)text=text.replace(/\{c\}/g,data.c);
+  return Object.assign({type:'word',lv:lv,scene:tpl.sc,text:text},data);
+}
+
+// ── Number Sense Generators ──
+function genSense(lv,i){
+  var sub=lv.sub,rng=lv.rng||[1,20];
+  if(sub==='count10'){
+    var n=rnd(1,10);
+    var emojis=['🍎','🌟','🐱','🌸','⭐'];
+    var em=emojis[rnd(0,emojis.length-1)];
+    return{type:'sense',sub:'count10',lv:lv,n:n,emoji:em,ans:n};
+  }
+  if(sub==='position'){
+    var dirs=['上面','下面','左边','右边','前面','后面'];
+    var d=dirs[rnd(0,dirs.length-1)];
+    var items=[['🐱','🐶'],['🌟','🌙'],['🍎','🍊'],['🚗','🚌']];
+    var pair=items[rnd(0,items.length-1)];
+    // Q: A在B的___? 
+    var relMap={'上面':'下面','下面':'上面','左边':'右边','右边':'左边','前面':'后面','后面':'前面'};
+    return{type:'sense',sub:'position',lv:lv,a:pair[0],b:pair[1],rel:d,ans:d,choices:dirs.slice(0,4)};
+  }
+  if(sub==='rmb'){
+    // 人教版一年级：认识元角分，简单换算
+    var variants=[
+      function(){var y=rnd(1,9);return{type:'sense',sub:'rmb',lv:lv,ask:'换算',q:y+'元 = ?角',ans:y*10,choices:[y*10,y*10+1,y*10-1,y*10+5]}},
+      function(){var j=rnd(1,9);return{type:'sense',sub:'rmb',lv:lv,ask:'换算',q:j+'角 = ?分',ans:j*10,choices:[j*10,j*10+5,j*10-5,j*10+1]}},
+      function(){var a=rnd(1,5),b=rnd(1,5);return{type:'sense',sub:'rmb',lv:lv,ask:'合计',q:a+'元'+b+'角 共多少角？',ans:a*10+b,choices:[a*10+b,a*10,a+b,a*10+b+1]}},
+      function(){var a=rnd(2,9),pay=Math.ceil(a/10)*10;return{type:'sense',sub:'rmb',lv:lv,ask:'找零',q:'买了'+a+'角的糖，给1元，找回几角？',ans:10-a,choices:[10-a,a,10+a,10-a+1]}},
+      function(){var coins=[1,2,5,10,20,50,100];var a=coins[rnd(0,4)],b=coins[rnd(0,3)];return{type:'sense',sub:'rmb',lv:lv,ask:'合计',q:a+'分＋'+b+'分 共多少分？',ans:a+b,choices:[a+b,a*b,a-b<0?b-a:a-b,(a+b+1)]}},
+    ];
+    return variants[rnd(0,variants.length-1)]();
+  }
+  if(sub==='compare'){
+    var a=rnd(rng[0],rng[1]),b=rnd(rng[0],rng[1]);
+    while(a===b)b=rnd(rng[0],rng[1]);
+    return{type:'sense',sub:'compare',lv:lv,a:a,b:b,ans:a>b?'>':'<',choices:['>','<','=']};
+  }
+  if(sub==='numberline'){
+    var max=rng[1],a=rnd(rng[0]+1,max-1);
+    return{type:'sense',sub:'numberline',lv:lv,target:a,max:max,ans:a};
+  }
+  if(sub==='maketen'){
+    var a=rnd(1,9);
+    return{type:'sense',sub:'maketen',lv:lv,a:a,ans:10-a};
+  }
+  if(sub==='order'){
+    var n=4,nums=[],used={};
+    while(nums.length<n){var x=rnd(rng[0],rng[1]);if(!used[x]){used[x]=1;nums.push(x)}}
+    var sorted=nums.slice().sort(function(p,q){return p-q});
+    return{type:'sense',sub:'order',lv:lv,nums:nums,ans:sorted};
+  }
+  if(sub==='placevalue'){
+    var n=rnd(rng[0],rng[1]);
+    var tens=Math.floor(n/10),ones=n%10;
+    var v=rnd(0,1);
+    if(v===0)return{type:'sense',sub:'placevalue',lv:lv,n:n,ask:'tens',ans:tens,tens:tens,ones:ones};
+    return{type:'sense',sub:'placevalue',lv:lv,n:n,ask:'ones',ans:ones,tens:tens,ones:ones};
+  }
+  if(sub==='estimate'){
+    var actual=rnd(8,40);
+    var nearest10=Math.round(actual/10)*10;
+    var choices=[Math.max(5,nearest10-10),nearest10,nearest10+10];
+    return{type:'sense',sub:'estimate',lv:lv,actual:actual,choices:shuffle(choices.slice()),ans:nearest10};
+  }
+  return null;
+}
+
+// ── Measurement Generators ──
+function genMeasure(lv){
+  var sub=lv.sub;
+  if(sub==='compare_length'){
+    var a=rnd(2,9),b=rnd(2,9);
+    while(a===b)b=rnd(2,9);
+    return{type:'measure',sub:'compare_length',lv:lv,a:a,b:b,ans:a>b?'A':'B'};
+  }
+  if(sub==='clock_hour'){
+    var h=rnd(1,12);
+    var v=rnd(0,1);
+    if(v===0)return{type:'measure',sub:'clock_hour',lv:lv,h:h,m:0,ans:h+':00'};
+    return{type:'measure',sub:'clock_hour',lv:lv,h:h,m:30,ans:h+':30'};
+  }
+  if(sub==='graph'){
+    var cats=[['🍎',rnd(2,8)],['🍌',rnd(2,8)],['🍇',rnd(2,8)]];
+    while(cats[0][1]===cats[1][1]||cats[1][1]===cats[2][1]||cats[0][1]===cats[2][1]){
+      cats=[['🍎',rnd(2,8)],['🍌',rnd(2,8)],['🍇',rnd(2,8)]];
+    }
+    var ask=rnd(0,1)?'most':'least';
+    var sorted=cats.slice().sort(function(p,q){return ask==='most'?q[1]-p[1]:p[1]-q[1]});
+    return{type:'measure',sub:'graph',lv:lv,cats:cats,ask:ask,ans:sorted[0][0]};
+  }
+  if(sub==='clock_min'){
+    var h=rnd(1,12),m=rnd(1,11)*5;
+    return{type:'measure',sub:'clock_min',lv:lv,h:h,m:m,ans:h+':'+(m<10?'0'+m:m)};
+  }
+  if(sub==='calendar'){
+    // 人教版:认识日历 — 月份天数/星期
+    var months=[1,3,5,7,8,10,12];var months30=[4,6,9,11];
+    var v=rnd(0,2);
+    if(v===0){
+      var m=months[rnd(0,months.length-1)];
+      return{type:'measure',sub:'calendar',lv:lv,ask:'days',month:m,ans:31,choices:['28','29','30','31']};
+    }
+    if(v===1){
+      var m=months30[rnd(0,months30.length-1)];
+      return{type:'measure',sub:'calendar',lv:lv,ask:'days',month:m,ans:30,choices:['28','29','30','31']};
+    }
+    // 星期几
+    var days=['星期一','星期二','星期三','星期四','星期五','星期六','星期日'];
+    var today=rnd(0,6),after=rnd(1,5);
+    var next=(today+after)%7;
+    return{type:'measure',sub:'calendar',lv:lv,ask:'weekday',today:days[today],after:after,ans:days[next],choices:shuffle(days.slice(0,5))};
+  }
+  if(sub==='length_unit'){
+    // 人教版二年级：认识厘米和米，选合适单位
+    var items=[
+      {thing:'一支铅笔',ans:'厘米',len:rnd(15,20)},
+      {thing:'教室的门',ans:'米',len:rnd(2,3)},
+      {thing:'一本书的厚度',ans:'厘米',len:rnd(1,3)},
+      {thing:'跳绳',ans:'米',len:rnd(2,4)},
+      {thing:'手指的宽度',ans:'厘米',len:1},
+      {thing:'旗杆',ans:'米',len:rnd(6,10)},
+      {thing:'课桌的高度',ans:'厘米',len:rnd(60,80)},
+      {thing:'一张课桌',ans:'厘米',len:rnd(70,90)},
+    ];
+    var pick=items[rnd(0,items.length-1)];
+    return{type:'measure',sub:'length_unit',lv:lv,thing:pick.thing,len:pick.len,ans:pick.ans,choices:['厘米','米','千米','毫米']};
+  }
+  return null;
+}
+
+// ── Geometry Generators ──
+function genGeom(lv){
+  var sub=lv.sub;
+  var SHAPES=['circle','triangle','square','rectangle','star','heart','hexagon'];
+  var SHAPE_NAMES={circle:'圆形',triangle:'三角形',square:'正方形',rectangle:'长方形',star:'星形',heart:'心形',hexagon:'六边形'};
+  if(sub==='directions'){
+    // 人教版:上下左右
+    var scenes=[
+      {q:'🐱 在 🐶 的哪边？(🐱在左，🐶在右)',ans:'左边',choices:['左边','右边','上面','下面']},
+      {q:'🌟 在 ☀️ 的哪边？(🌟在上，☀️在下)',ans:'上面',choices:['左边','右边','上面','下面']},
+      {q:'🍎 在桌子的 ___？',ans:'上面',choices:['上面','下面','左边','右边']},
+      {q:'小猫在门的左边，小狗在小猫的哪边？',ans:'右边',choices:['左边','右边','上面','下面']},
+    ];
+    var pick=scenes[rnd(0,scenes.length-1)];
+    return{type:'geom',sub:'directions',lv:lv,q:pick.q,ans:pick.ans,choices:pick.choices};
+  }
+  if(sub==='solid'){
+    // 人教版:认识立体图形
+    var solids=[
+      {name:'正方体',emoji:'🎲',features:'6个面，都一样大',choices:['正方体','长方体','球','圆柱']},
+      {name:'球',emoji:'⚽',features:'圆圆的，能滚动',choices:['正方体','球','圆柱','锥']},
+      {name:'圆柱',emoji:'🥫',features:'两个圆形的面，能滚动',choices:['正方体','球','圆柱','长方体']},
+      {name:'长方体',emoji:'📦',features:'6个面，对面一样大',choices:['正方体','长方体','球','圆柱']},
+    ];
+    var pick=solids[rnd(0,solids.length-1)];
+    return{type:'geom',sub:'solid',lv:lv,name:pick.name,emoji:pick.emoji,features:pick.features,choices:shuffle(pick.choices),ans:pick.name};
+  }
+  if(sub==='identify'){
+    var ans=SHAPES[rnd(0,4)];
+    var distractors=SHAPES.filter(function(s){return s!==ans}).slice(0,3);
+    return{type:'geom',sub:'identify',lv:lv,ans:ans,name:SHAPE_NAMES[ans],choices:shuffle([ans].concat(distractors))};
+  }
+  if(sub==='count'){
+    var target=['triangle','circle','square'][rnd(0,2)];
+    var counts={};
+    SHAPES.slice(0,4).forEach(function(s){counts[s]=rnd(1,4)});
+    counts[target]=Math.max(counts[target],2);
+    return{type:'geom',sub:'count',lv:lv,target:target,name:SHAPE_NAMES[target],counts:counts,ans:counts[target]};
+  }
+  if(sub==='symmetry'){
+    var items=[['🦋',true],['🌸',true],['❤️',true],['🍌',false],['🐟',false],['🌟',true],['🍕',false],['⭐',true]];
+    var pick=items[rnd(0,items.length-1)];
+    return{type:'geom',sub:'symmetry',lv:lv,emoji:pick[0],ans:pick[1]};
+  }
+  if(sub==='compose'){
+    var qs=[
+      {tri:2,opts:['正方形','圆形','五边形'],ans:'正方形'},
+      {tri:6,opts:['六边形','长方形','圆形'],ans:'六边形'},
+      {sq:2,opts:['长方形','三角形','圆形'],ans:'长方形'},
+    ];
+    var pick=qs[rnd(0,qs.length-1)];
+    return Object.assign({type:'geom',sub:'compose',lv:lv},pick);
+  }
+  return null;
+}
+
+// ── Logic Generators ──
+function genLogic(lv){
+  var sub=lv.sub;
+  if(sub==='pattern'){
+    var start=rnd(1,5),step=rnd(1,3);
+    var seq=[start,start+step,start+2*step,start+3*step];
+    return{type:'logic',sub:'pattern',lv:lv,seq:seq.slice(0,3),ans:seq[3]};
+  }
+  if(sub==='pattern_shape'){
+    // 图形规律：形状序列
+    var patterns=[
+      {seq:['🔴','🔵','🔴','🔵'],ans:'🔴',desc:'红蓝交替'},
+      {seq:['⭕','△','⭕','△'],ans:'⭕',desc:'圆三角交替'},
+      {seq:['🌟','🌟','🌙','🌟','🌟'],ans:'🌙',desc:'两星一月'},
+      {seq:['🍎','🍊','🍌','🍎','🍊'],ans:'🍌',desc:'三个水果循环'},
+      {seq:['↑','→','↓','←','↑'],ans:'→',desc:'四方向循环'},
+      {seq:['1️⃣','2️⃣','1️⃣','2️⃣'],ans:'1️⃣',desc:'1和2交替'},
+    ];
+    var pick=patterns[rnd(0,patterns.length-1)];
+    var showSeq=pick.seq.slice(0,-1);
+    return{type:'logic',sub:'pattern_shape',lv:lv,seq:showSeq,ans:pick.seq[pick.seq.length-1],
+      allChoices:shuffle(Array.from(new Set(pick.seq)).concat(['❤️','🎵'])).slice(0,4)};
+  }
+  if(sub==='arith_pattern'){
+    // 加减规律
+    var patterns=[
+      function(){var b=rnd(2,5);var s=rnd(1,6);return{seq:[s,s+b,s+2*b],ans:s+3*b,step:'+'+b}},
+      function(){var b=rnd(2,4);var s=rnd(5*b,8*b);return{seq:[s,s-b,s-2*b],ans:s-3*b,step:'-'+b}},
+      function(){return{seq:[2,4,8],ans:16,step:'×2',isDouble:true}},
+      function(){return{seq:[1,2,4,8],ans:16,step:'×2',isDouble:true}},
+    ];
+    var p=patterns[rnd(0,patterns.length-1)]();
+    return Object.assign({type:'logic',sub:'arith_pattern',lv:lv},p,{choices:genChoices(p.ans,Math.max(3,Math.floor(p.ans*.3)))});
+  }
+  if(sub==='sort_logic'){
+    // 排列顺序 — 人教版：按大小/时间/步骤排序
+    var sets=[
+      {items:['3','17','8','25'],sorted:['3','8','17','25'],ask:'从小到大'},
+      {items:['100','1','50','10'],sorted:['1','10','50','100'],ask:'从小到大'},
+      {items:['早上','下午','晚上','中午'],sorted:['早上','中午','下午','晚上'],ask:'按时间顺序'},
+      {items:['星期三','星期一','星期五','星期二'],sorted:['星期一','星期二','星期三','星期五'],ask:'按星期顺序'},
+    ];
+    var pick=sets[rnd(0,sets.length-1)];
+    return{type:'logic',sub:'sort_logic',lv:lv,items:shuffle(pick.items.slice()),sorted:pick.sorted,ask:pick.ask,ans:pick.sorted[0]};
+  }
+  if(sub==='oddout'){
+    var sets=[
+      {items:['🍎','🍊','🍌','🚗'],ans:'🚗',hint:'前三个是水果'},
+      {items:['🐶','🐱','🐰','🌸'],ans:'🌸',hint:'前三个是动物'},
+      {items:['⭕','🔵','🔴','▲'],ans:'▲',hint:'前三个是圆形'},
+      {items:['1','3','5','4'],ans:'4',hint:'1、3、5是单数'},
+      {items:['2','4','6','7'],ans:'7',hint:'2、4、6是双数'},
+      {items:['🚲','🚗','🚌','🐱'],ans:'🐱',hint:'前三个是交通工具'},
+      {items:['🍎','🍐','🍊','🥕'],ans:'🥕',hint:'前三个是水果'},
+      {items:['✏️','📏','📐','🍭'],ans:'🍭',hint:'前三个是文具'},
+      {items:['🌹','🌷','🌸','🌊'],ans:'🌊',hint:'前三个是花'},
+      {items:['5','10','15','12'],ans:'12',hint:'5、10、15是5的倍数'},
+      {items:['3','6','9','8'],ans:'8',hint:'3、6、9是3的倍数'},
+      {items:['🎈','🎉','🎊','🌧️'],ans:'🌧️',hint:'前三个是节日/庆祝'},
+      {items:['🍕','🍔','🍜','⚽'],ans:'⚽',hint:'前三个是食物'},
+      {items:['🌙','⭐','☀️','🐠'],ans:'🐠',hint:'前三个是天体/天空'},
+      {items:['100','50','10','7'],ans:'7',hint:'100、50、10是整十/整百数'},
+    ];
+    var pick=sets[rnd(0,sets.length-1)];
+    return{type:'logic',sub:'oddout',lv:lv,items:shuffle(pick.items.slice()),ans:pick.ans,hint:pick.hint};
+  }
+  if(sub==='truefalse'){
+    var stmts=[
+      {t:'5 + 3 比 5 大',ans:true,explain:'加法让数变大'},
+      {t:'10 - 2 = 2 - 10',ans:false,explain:'减法不能交换位置'},
+      {t:'3 + 4 = 4 + 3',ans:true,explain:'加法可以交换位置（交换律）'},
+      {t:'7 个比 8 个多',ans:false,explain:'7 比 8 小'},
+      {t:'两个 5 加起来是 10',ans:true,explain:'5 + 5 = 10'},
+      {t:'9 是最大的一位数',ans:true,explain:'一位数从 0 到 9'},
+      {t:'12 的十位是 2',ans:false,explain:'12 的十位是 1，个位是 2'},
+      {t:'比 5 大比 8 小的数有 6 和 7',ans:true,explain:'6、7 在 5 和 8 之间'},
+      {t:'0 是最小的自然数',ans:true,explain:'自然数从 0 开始'},
+      {t:'20 以内最大的偶数是 18',ans:false,explain:'20 以内最大偶数是 20'},
+      {t:'个位是 0 的两位数一定是整十数',ans:true,explain:'如 10、20、30…'},
+      {t:'加法的结果一定比两个加数都大',ans:false,explain:'加 0 时结果不变'},
+      {t:'两位数一定比一位数大',ans:true,explain:'最小两位数是 10，最大一位数是 9'},
+      {t:'6 × 7 和 7 × 6 结果一样',ans:true,explain:'乘法有交换律'},
+      {t:'减法可以验算：差 + 减数 = 被减数',ans:true,explain:'加减互为逆运算'},
+      {t:'100 里面有 10 个 10',ans:true,explain:'10 × 10 = 100'},
+      {t:'正方形的四条边一样长',ans:true,explain:'正方形四边相等'},
+      {t:'5 的倍数的个位一定是 0 或 5',ans:true,explain:'5、10、15、20…的规律'},
+    ];
+    var pick=stmts[rnd(0,stmts.length-1)];
+    return{type:'logic',sub:'truefalse',lv:lv,stmt:pick.t,ans:pick.ans,explainExtra:pick.explain};
+  }
+  if(sub==='classify'){
+    var sets=[
+      {label:'水果',right:['🍎','🍊','🍇'],wrong:'🚗'},
+      {label:'动物',right:['🐶','🐱','🐰'],wrong:'🌸'},
+      {label:'交通工具',right:['🚗','🚌','🚲'],wrong:'🍎'},
+      {label:'文具',right:['✏️','📏','📐'],wrong:'🍕'},
+      {label:'蔬菜',right:['🥕','🥦','🌽'],wrong:'🚌'},
+      {label:'天气',right:['☀️','🌧️','❄️'],wrong:'🐟'},
+      {label:'数学工具',right:['➕','➖','✖️'],wrong:'🌸'},
+      {label:'整十数',right:['10','20','50'],wrong:'15'},
+      {label:'单数',right:['1','3','7'],wrong:'4'},
+      {label:'双数',right:['2','6','8'],wrong:'5'},
+    ];
+    var pick=sets[rnd(0,sets.length-1)];
+    var items=shuffle(pick.right.concat([pick.wrong]));
+    return{type:'logic',sub:'classify',lv:lv,label:pick.label,items:items,ans:pick.wrong};
+  }
+  if(sub==='numguess'){
+    // I am between X and Y; +/- a hint
+    var ans=rnd(2,18);
+    var lo=Math.max(1,ans-rnd(2,4));
+    var hi=Math.min(20,ans+rnd(2,4));
+    var hints=['我比 '+lo+' 大，比 '+hi+' 小'];
+    if(ans%2===0)hints.push('我是双数');else hints.push('我是单数');
+    return{type:'logic',sub:'numguess',lv:lv,hints:hints,ans:ans,range:[lo,hi]};
+  }
+  return null;
+}
+
+// ── Master generator dispatch ──
 function genQs(mod,lv,n){
   n=n||10;
-  return Array.from({length:n},function(_,i){
-    var t=tier(i);
-    if(mod==='add'){
-      if(t==='hard'&&lv.vis&&lv.ops.includes('+')&&Math.random()<.35)return gen3(lv);
-      return genAdd(lv,t);
-    }
-    return genMul(lv,t);
-  });
+  var arr=[];
+  var kind=MODULES[mod].kind;
+  var attempts=0;
+  while(arr.length<n && attempts<n*4){
+    attempts++;
+    var t=tier(arr.length);
+    var q=null;
+    if(kind==='arith'){
+      if(mod==='add'){
+        if(t==='hard'&&lv.vis&&lv.ops.includes('+')&&Math.random()<.35) q=gen3(lv);
+        else q=genAdd(lv,t);
+      }else q=genMul(lv,t);
+    } else if(kind==='word')   q=genWord(lv);
+    else if(kind==='sense')    q=genSense(lv,arr.length);
+    else if(kind==='measure')  q=genMeasure(lv);
+    else if(kind==='geom')     q=genGeom(lv);
+    else if(kind==='logic')    q=genLogic(lv);
+    if(q) arr.push(q);
+  }
+  return arr;
 }
 function genChoices(ans,spread){
   var s=new Set([ans]);var x=0;
@@ -899,8 +1615,204 @@ function explain(q,correct){
     speech=ai+'除以'+bi+'。就是把'+ai+'个东西，每'+bi+'个一组，能分成'+a+'组。反过来想，'+bi+'乘'+a+'等于'+ai+'，答案是'+a+'。';
   }
 
-  if(!correct) speech='正确答案是'+a+'。'+speech;
-  return{steps,speech};
+  // ═══════════════ 应用题 ═══════════════
+  else if(q.type==='word'){
+    var op=q.op;
+    if(op==='+'){
+      steps=[
+        {e:'👀',t:'<b>读题</b>：'+q.text},
+        {e:'💡',t:'<b>找关键词</b>："一共"、"合起来"、"又来了" → 用<b>加法</b>'},
+        {e:'🎨',t:'<b>画图</b>：两部分合在一起就是答案',viz:barModel(q.a,q.b,'+')},
+        {e:'🧮',t:'<b>列式</b>：'+q.a+' + '+q.b+' = '+q.ans},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech='这道题用加法，'+q.a+'加'+q.b+'等于'+q.ans+'。';
+    } else if(op==='-'){
+      var keyword=q.cmp?'"比...多/少"':(q.money?'"找回"':'"还剩"、"用了"、"飞走"');
+      steps=[
+        {e:'👀',t:'<b>读题</b>：'+q.text},
+        {e:'💡',t:'<b>找关键词</b>：'+keyword+' → 用<b>减法</b>'},
+        {e:'🎨',t:'<b>画图</b>：从总量中拿走一部分',viz:barModel(q.a,q.b,'-')},
+        {e:'🧮',t:'<b>列式</b>：'+q.a+' − '+q.b+' = '+q.ans},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'+(q.money?' 元':'')}
+      ];
+      speech='这道题用减法，'+q.a+'减'+q.b+'等于'+q.ans+'。';
+    } else if(op==='÷'){
+      var k=q.ans;
+      steps=[
+        {e:'👀',t:'<b>读题</b>：'+q.text},
+        {e:'💡',t:'<b>找关键词</b>："平均分"、"每人" → 用<b>除法</b>'},
+        {e:'🎨',t:'<b>画图</b>：把 '+q.a+' 个东西分成 '+q.b+' 份',viz:groupViz(q.b,k)},
+        {e:'🧮',t:'<b>列式</b>：'+q.a+' ÷ '+q.b+' = '+k},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+k+'</b>'}
+      ];
+      speech='把'+q.a+'平均分给'+q.b+'人，每人'+k+'个。';
+    } else { // mix
+      steps=[
+        {e:'👀',t:'<b>读题</b>：'+q.text},
+        {e:'💡',t:'<b>分两步走</b>：先算一部分，再算另一部分'},
+        {e:'🧮',t:'<b>第一步</b>：列出已知信息'},
+        {e:'🧮',t:'<b>第二步</b>：算出最后答案 = '+q.ans},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech='这是多步骤问题，仔细想，答案是'+q.ans+'。';
+    }
+  }
+
+  // ═══════════════ 数感 ═══════════════
+  else if(q.type==='sense'){
+    if(q.sub==='compare'){
+      var sym=q.ans;
+      steps=[
+        {e:'👀',t:'<b>看数字</b>：左边 '+q.a+'，右边 '+q.b},
+        {e:'💭',t:'<b>想一想</b>：'+(q.a>q.b?q.a+' 比 '+q.b+' 大':q.a+' 比 '+q.b+' 小')},
+        {e:'✅',t:'答案是 '+q.a+' <b style="color:var(--g);font-size:1.4em">'+sym+'</b> '+q.b}
+      ];
+      speech=q.a+(q.a>q.b?'比':'比')+q.b+(q.a>q.b?'大':'小')+'，用'+(sym==='>'?'大于号':'小于号')+'。';
+    } else if(q.sub==='maketen'){
+      steps=[
+        {e:'🎯',t:'<b>凑十法</b>：找 '+q.a+' 的好朋友'},
+        {e:'🎨',t:'<b>画图</b>：'+q.a+' 还差 '+q.ans+' 个就到 10',viz:numberBond(q.a,q.ans,10)},
+        {e:'✅',t:q.a+' + <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b> = 10'}
+      ];
+      speech=q.a+'加'+q.ans+'等于10，'+q.ans+'是'+q.a+'的好朋友。';
+    } else if(q.sub==='order'){
+      steps=[
+        {e:'👀',t:'<b>看一看</b>：要把 '+q.nums.join(', ')+' 排队'},
+        {e:'💭',t:'<b>找最小</b>：'+q.ans[0]+' 最小，排第一'},
+        {e:'🎯',t:'<b>依次排</b>：再找剩下里最小的'},
+        {e:'✅',t:'<b style="color:var(--g);font-size:1.1em">'+q.ans.join(' < ')+'</b>'}
+      ];
+      speech='从小到大排：'+q.ans.join('、')+'。';
+    } else if(q.sub==='placevalue'){
+      steps=[
+        {e:'🏠',t:'<b>数位认识</b>：'+q.n+' 这个数'},
+        {e:'🔢',t:'<b>拆开看</b>：十位是 <b>'+q.tens+'</b>，个位是 <b>'+q.ones+'</b>'},
+        {e:'💡',t:'<b>意思是</b>：'+q.tens+' 个十 + '+q.ones+' 个一 = '+q.n},
+        {e:'✅',t:(q.ask==='tens'?'十位':'个位')+'是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech=q.n+'的十位是'+q.tens+'，个位是'+q.ones+'。';
+    } else if(q.sub==='estimate'){
+      steps=[
+        {e:'👀',t:'<b>不要数</b>：估一下大概多少'},
+        {e:'💭',t:'<b>策略</b>：找 5 个一组的小堆，看有几堆'},
+        {e:'🎯',t:'<b>实际</b>：'+q.actual+' 个，最接近 '+q.ans},
+        {e:'✅',t:'答案大约是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech='估算大概'+q.ans+'个，实际有'+q.actual+'个。';
+    } else if(q.sub==='numberline'){
+      steps=[
+        {e:'📏',t:'<b>看数轴</b>：从 0 到 '+q.max},
+        {e:'💭',t:'<b>找位置</b>：标记在 <b>'+q.target+'</b>'},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.target+'</b>'}
+      ];
+      speech='这个位置代表'+q.target+'。';
+    }
+  }
+
+  // ═══════════════ 测量 ═══════════════
+  else if(q.type==='measure'){
+    if(q.sub==='compare_length'){
+      steps=[
+        {e:'👀',t:'<b>对齐</b>：把两条线放在一起'},
+        {e:'📏',t:'<b>看长度</b>：A 长 '+q.a+'，B 长 '+q.b},
+        {e:'✅',t:(q.a>q.b?'A 更长':'B 更长')+' (差 '+Math.abs(q.a-q.b)+')'}
+      ];
+      speech=(q.ans==='A'?'A':'B')+'更长。';
+    } else if(q.sub==='clock_hour'||q.sub==='clock_min'){
+      steps=[
+        {e:'🕐',t:'<b>看时针</b>：指向 '+q.h},
+        {e:'🕧',t:'<b>看分针</b>：指向 '+(q.m===0?'12 (整点)':q.m===30?'6 (半点)':q.m+'分')},
+        {e:'✅',t:'现在是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech='现在是'+q.h+'点'+(q.m===0?'整':q.m+'分')+'。';
+    } else if(q.sub==='graph'){
+      steps=[
+        {e:'📊',t:'<b>看图表</b>：每行有几个'},
+        {e:'💭',t:'<b>'+(q.ask==='most'?'找最多':'找最少')+'</b>：比较各行长短'},
+        {e:'✅',t:(q.ask==='most'?'最多的是 ':'最少的是 ')+'<b style="font-size:1.4em">'+q.ans+'</b>'}
+      ];
+      speech=(q.ask==='most'?'最多':'最少')+'的是'+q.ans+'。';
+    }
+  }
+
+  // ═══════════════ 几何 ═══════════════
+  else if(q.type==='geom'){
+    if(q.sub==='identify'){
+      steps=[
+        {e:'👀',t:'<b>观察特征</b>：边、角、形状'},
+        {e:'💡',t:'<b>'+q.name+'</b> 的特点：'+(q.ans==='circle'?'没有角，圆圆的':q.ans==='triangle'?'3 条边 3 个角':q.ans==='square'?'4 条边一样长':q.ans==='rectangle'?'4 条边，长短不同':'多个角')},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.name+'</b>'}
+      ];
+      speech='这是'+q.name+'。';
+    } else if(q.sub==='count'){
+      steps=[
+        {e:'👀',t:'<b>找目标</b>：找'+q.name},
+        {e:'🔢',t:'<b>一个一个数</b>：注意不要漏掉'},
+        {e:'✅',t:'共有 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b> 个 '+q.name}
+      ];
+      speech=q.name+'有'+q.ans+'个。';
+    } else if(q.sub==='symmetry'){
+      steps=[
+        {e:'🦋',t:'<b>对称的意思</b>：对折后两边一样'},
+        {e:'💡',t:q.emoji+' '+(q.ans?'是':'不是')+'对称的'},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+(q.ans?'是':'不是')+'</b>'}
+      ];
+      speech=q.emoji+(q.ans?'是':'不是')+'对称图形。';
+    } else if(q.sub==='compose'){
+      steps=[
+        {e:'🧩',t:'<b>拼一拼</b>：用小图形拼大图形'},
+        {e:'💡',t:'<b>答案</b>：'+q.ans},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech='可以拼成'+q.ans+'。';
+    }
+  }
+
+  // ═══════════════ 逻辑 ═══════════════
+  else if(q.type==='logic'){
+    if(q.sub==='pattern'){
+      var diff=q.seq[1]-q.seq[0];
+      steps=[
+        {e:'🔄',t:'<b>找规律</b>：每次增加多少？'},
+        {e:'💭',t:'<b>规律</b>：每次 +'+diff+'，'+q.seq.join(', ')+', ?'},
+        {e:'🧮',t:'<b>计算</b>：'+q.seq[2]+' + '+diff+' = '+q.ans},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech='每次加'+diff+'，下一个是'+q.ans+'。';
+    } else if(q.sub==='oddout'){
+      steps=[
+        {e:'🔍',t:'<b>找不一样</b>：观察每个的特征'},
+        {e:'💡',t:'<b>分析</b>：其他都是一类，只有它不同'},
+        {e:'✅',t:'答案是 <b style="font-size:1.6em">'+q.ans+'</b>'}
+      ];
+      speech='不一样的是这个。';
+    } else if(q.sub==='truefalse'){
+      steps=[
+        {e:'🤔',t:'<b>判断</b>：'+q.stmt},
+        {e:'💡',t:'<b>分析</b>：'+q.explainExtra},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+(q.ans?'对':'错')+'</b>'}
+      ];
+      speech=(q.ans?'对':'错')+'。'+q.explainExtra+'。';
+    } else if(q.sub==='classify'){
+      steps=[
+        {e:'📦',t:'<b>分类</b>：找'+q.label+'之外的'},
+        {e:'💡',t:'<b>不属于</b> '+q.label},
+        {e:'✅',t:'答案是 <b style="font-size:1.6em">'+q.ans+'</b>'}
+      ];
+      speech='这个不是'+q.label+'。';
+    } else if(q.sub==='numguess'){
+      steps=[
+        {e:'🕵️',t:'<b>线索</b>：'+q.hints.join('；')},
+        {e:'💭',t:'<b>排除</b>：在 '+q.range[0]+' 到 '+q.range[1]+' 之间'},
+        {e:'✅',t:'答案是 <b style="color:var(--g);font-size:1.2em">'+q.ans+'</b>'}
+      ];
+      speech='答案是'+q.ans+'。';
+    }
+  }
+
+  if(!correct && q.ans!==undefined && typeof q.ans!=='object') speech='正确答案是'+q.ans+'。'+speech;
+  return{steps:steps,speech:speech};
 }
 
 // ═══════════════════════════════════
@@ -912,16 +1824,65 @@ function show(id){
 }
 
 // HOME
+// Current grade selection (persisted)
+var CUR_GRADE=(function(){try{var v=localStorage.getItem('grade');return GRADES[v]?v:'G1'}catch(e){return 'G1'}})();
+function setGrade(g){CUR_GRADE=g;try{localStorage.setItem('grade',g)}catch(e){}}
+
 function renderHome(){
   var h=curHero();
   document.getElementById('homeHero').innerHTML=
     '<div style="filter:drop-shadow(0 0 18px '+h.suit+'88);animation:float 3s ease-in-out infinite">'+
-    buildSVG(120,120,h,'normal')+'</div>'+
+    buildSVG(110,110,h,'normal')+'</div>'+
     '<div class="app-title">数学星球</div>'+
+    '<div style="font-size:.7rem;color:#a78bfa;font-weight:700;letter-spacing:.08em;margin-top:-2px">MATH PLANET</div>'+
     '<div class="app-sub">和'+curHeroName()+'一起探索数字宇宙！</div>';
+
+  // Grade tabs
+  var tabsEl=document.getElementById('gradeTabs');
+  tabsEl.innerHTML=GRADE_ORDER.map(function(g){
+    var info=GRADES[g];
+    return '<button class="gt-btn'+(g===CUR_GRADE?' sel':'')+'" data-g="'+g+'">'
+      +'<span>'+info.ico+'</span>'
+      +'<span>'+info.nm+'</span>'
+      +'<span class="gt-en">'+info.en+'</span>'
+      +'</button>';
+  }).join('');
+  tabsEl.querySelectorAll('.gt-btn').forEach(function(b){
+    b.onclick=function(){SFX.tap();setGrade(b.dataset.g);renderHome()};
+  });
+
+  // Module grid — show modules that have at least one level for current grade
+  var grid=document.getElementById('modGrid');
+  var html='';
+  MOD_ORDER.forEach(function(modKey){
+    var m=MODULES[modKey];
+    var lvsInGrade=m.levels.filter(function(l){return l.grade===CUR_GRADE});
+    if(lvsInGrade.length===0)return; // skip modules with no content for this grade
+    var doneStars=lvsInGrade.reduce(function(s,l){return s+((G.prog[l.id]&&G.prog[l.id].stars)||0)},0);
+    var maxStars=lvsInGrade.length*3;
+    var sub=m.kind==='word'?'生活情境':m.kind==='sense'?'数感培养':m.kind==='measure'?'测量与时间':m.kind==='geom'?'图形空间':m.kind==='logic'?'思维训练':lvsInGrade[0].ds;
+    html+='<div class="mod-card" data-mod="'+modKey+'">'
+      +'<span class="lvc">'+lvsInGrade.length+' levels</span>'
+      +'<span class="ico">'+m.icon+'</span>'
+      +'<div class="nm">'+m.name+'</div>'
+      +'<div class="mod-en">'+(m.en||'')+'</div>'
+      +'<div class="sb">'+(doneStars>0?'⭐ '+doneStars+'/'+maxStars:sub)+'</div>'
+      +'</div>';
+  });
+  if(html===''){
+    html='<div style="grid-column:1/-1;text-align:center;padding:30px 20px;color:var(--dim);font-size:.85rem">'
+      +'😊 这个年级的内容还在准备中<br>请选择其他年级'
+      +'</div>';
+  }
+  grid.innerHTML=html;
+  grid.querySelectorAll('.mod-card').forEach(function(c){
+    c.onclick=function(){SFX.tap();G.mod=c.dataset.mod;renderLevels()};
+  });
+
   var total=Object.values(G.prog).reduce(function(s,v){return s+(v.stars||0)},0);
   var el=document.getElementById('totalStars');
   el.innerHTML=total>0?'已收集<b>⭐ '+total+' 颗</b>':'点击开始冒险！';
+
   // Voice chooser state + handlers
   document.querySelectorAll('#voiceChooser .vc-btn').forEach(function(b){
     if(b.dataset.e===VOICE_ENGINE) b.classList.add('sel');
@@ -941,27 +1902,31 @@ function renderHome(){
   // Settings button
   var btnS=document.getElementById('btnSettings');
   if(btnS) btnS.onclick=function(){SFX.tap();openSettings()};
+  // Knowledge map button
+  var btnM=document.getElementById('btnMap');
+  if(btnM) btnM.onclick=function(){SFX.tap();openKnowledgeMap();};
   show('sHome');
 }
-
-document.getElementById('btnAdd').onclick=function(){SFX.tap();G.mod='add';renderLevels()};
-document.getElementById('btnMul').onclick=function(){SFX.tap();G.mod='mul';renderLevels()};
 
 // LEVELS
 function renderLevels(){
   var m=MODULES[G.mod];
+  // Filter levels to current grade only
+  var lvs=m.levels.filter(function(l){return l.grade===CUR_GRADE});
   document.getElementById('lvTitle').textContent=m.icon+' '+m.name;
+  document.querySelector('#sLevels .s-sub').textContent=GRADES[CUR_GRADE].nm+' · 选择关卡开始挑战';
   var list=document.getElementById('lvList');
   list.innerHTML='';
-  m.levels.forEach(function(lv,i){
+  lvs.forEach(function(lv,i){
     var p=G.prog[lv.id]||{};
     var stars=p.stars||0;
-    var locked=i>0&&!(G.prog[m.levels[i-1].id]&&G.prog[m.levels[i-1].id].stars);
+    // Unlock: first level always open; others need previous level to have at least 1 star
+    var locked=i>0&&!(G.prog[lvs[i-1].id]&&G.prog[lvs[i-1].id].stars);
     var card=document.createElement('div');
     card.className='lv-card'+(locked?' locked':'');
     card.innerHTML='<div class="lv-glow" style="background:'+m.color+'"></div>'
       +'<div class="lv-ico">'+(locked?'🔒':lv.ico)+'</div>'
-      +'<div class="lv-inf"><div class="lv-nm">'+lv.nm+'</div><div class="lv-ds">'+lv.ds+'</div></div>'
+      +'<div class="lv-inf"><div class="lv-nm">'+lv.nm+'</div>'+(lv.en?'<div class="lv-en">'+lv.en+'</div>':'')+'<div class="lv-ds">'+lv.ds+'</div></div>'
       +'<div style="text-align:right"><div class="lv-stars">'
       +(stars?'⭐'.repeat(stars)+'☆'.repeat(3-stars):'☆☆☆')+'</div>'
       +(p.best?'<div class="lv-sc" style="background:'+m.color+'">'+p.best+'分</div>':'')
@@ -975,9 +1940,18 @@ document.getElementById('lvBack').onclick=function(){SFX.tap();renderHome()};
 
 // GAME
 function startGame(lvId){
-  var m=MODULES[G.mod];
-  G.lv=m.levels.find(function(l){return l.id===lvId});
-  G.qs=genQs(G.mod,G.lv,10);
+  // Search across all modules to find the level
+  var foundMod=null,foundLv=null;
+  for(var k in MODULES){
+    var lv=MODULES[k].levels.find(function(l){return l.id===lvId});
+    if(lv){foundMod=k;foundLv=lv;break;}
+  }
+  if(!foundLv)return;
+  G.mod=foundMod;
+  G.lv=foundLv;
+  // New modules use 6 questions (shorter for younger kids), arith stays at 10
+  var qCount=(MODULES[G.mod].kind==='arith')?10:6;
+  G.qs=genQs(G.mod,G.lv,qCount);
   G.qi=0;G.score=0;G.correct=0;G.streak=0;G.maxStreak=0;G.input='';G.answered=false;
   nextHero();
   show('sGame');
@@ -998,19 +1972,19 @@ function renderQ(){
   if(G.streak>=3){var sm=STREAKS[Math.min(G.streak,7)]||STREAKS[7];
     strPill='<span class="streak-pill" style="background:'+sm.bg+';color:'+sm.c+'">'+sm.t+'</span>'}
   document.getElementById('gScore').innerHTML='⭐ '+G.score+strPill;
-  document.getElementById('gProg').textContent=(G.qi+1)+'/10';
+  document.getElementById('gProg').textContent=(G.qi+1)+'/'+G.qs.length;
   document.getElementById('gProgFill').style.width=(pct*100)+'%';
 
   // coach
   document.getElementById('coachHero').innerHTML=
     '<div style="filter:drop-shadow(0 0 8px '+h.suit+'88)">'+buildSVG(56,56,h,'normal')+'</div>';
-  var tips=['想一想～','你一定会的！','慢慢来～','认真数一数～'];
-  var speech=G.streak>=5?'⚡ '+curHeroName()+'说：'+G.streak+'连击！':
+  var tips=['想一想～','你一定会的！','慢慢来～','认真看一看～'];
+  var coachMsg=G.streak>=5?'⚡ '+curHeroName()+'说：'+G.streak+'连击！':
     G.streak>=3?'🔥 连击'+G.streak+'次！继续！':
     q.lv.hint?'💡 '+q.lv.hint:
     q.type==='add3'?'把三个数加在一起！':
     curHeroName()+'说：'+tips[rnd(0,tips.length-1)];
-  document.getElementById('coachBubble').textContent=speech;
+  document.getElementById('coachBubble').textContent=coachMsg;
 
   // diff tag
   var dtEl=document.getElementById('diffTag');
@@ -1019,7 +1993,17 @@ function renderQ(){
   dtEl.textContent=dt[0]+(q.type==='add3'?' · 三数相加':'');
   dtEl.style.color=dt[1];dtEl.style.borderColor=dt[1];
 
-  // concept (mul)
+  // Dispatch by question type
+  if(q.type==='add'||q.type==='add3'||q.type==='mul')renderArithQ(q);
+  else if(q.type==='word')renderWordQ(q);
+  else if(q.type==='sense')renderSenseQ(q);
+  else if(q.type==='measure')renderMeasureQ(q);
+  else if(q.type==='geom')renderGeomQ(q);
+  else if(q.type==='logic')renderLogicQ(q);
+}
+
+// ── Arithmetic question rendering (preserved from original) ──
+function renderArithQ(q){
   var cpEl=document.getElementById('conceptPanel');
   cpEl.innerHTML='';
   if(q.lv.concept&&q.type==='mul'){
@@ -1037,8 +2021,7 @@ function renderQ(){
       cpEl.innerHTML='<div class="concept"><div class="concept-t">💡 '+q.a+'个平均分，每组'+q.b+'个，分几组？</div><div class="concept-d">'+dots+'</div></div>';
     }
   }
-
-  // question card
+  // visual fruits
   var fp=fruitPair(G.qi);
   var fruitHtml='';
   if((q.type==='add'||q.type==='add3')&&q.lv.vis){
@@ -1069,43 +2052,380 @@ function renderQ(){
       fruitHtml='<div class="fruit-row"><div class="f-grp"><div class="f-items">'+it+'</div><div class="f-lbl">共'+q.a+'个拿走'+q.b+'个</div></div></div>';
     }
   }
-
   var expr='';
   if(q.type==='add3'){
     expr='<div class="q-expr"><span>'+q.a+'</span><span class="q-op">+</span><span>'+q.b+'</span><span class="q-op">+</span><span>'+q.c+'</span><span class="q-op">=</span><span class="q-blank" id="qBlank">'+(G.input||'?')+'</span></div>';
   }else{
     expr='<div class="q-expr"><span>'+q.a+'</span><span class="q-op">'+q.op+'</span><span>'+q.b+'</span><span class="q-op">=</span><span class="q-blank" id="qBlank">'+(G.input||'?')+'</span></div>';
   }
-
   document.getElementById('qCard').innerHTML=
-    '<div class="q-lbl">第 '+(G.qi+1)+' 题</div>'
+    '<div class="q-lbl">第 '+(G.qi+1)+' 题 <span class="q-lbl-en">Question '+(G.qi+1)+'</span></div>'
     +fruitHtml+expr
     +(q.lv.hint&&q.type==='mul'?'<div class="hint">💡 '+q.lv.hint+'</div>':'');
 
-  // answer area
   var useNumpad=(q.ans>=20)||(q.type==='mul'&&q.a>30);
   var spread=q.ans>=50?14:q.ans>=20?7:4;
-  var ansEl=document.getElementById('ansArea');
-  if(useNumpad){
-    var html='<div class="numpad">';
-    [7,8,9,4,5,6,1,2,3].forEach(function(n){html+='<button class="np-btn" data-n="'+n+'">'+n+'</button>'});
-    html+='<button class="np-btn np-del" id="npDel">⌫</button><button class="np-btn" data-n="0">0</button><button class="np-btn np-ok" id="npOk">✓</button></div>';
-    ansEl.innerHTML=html;
-    ansEl.querySelectorAll('.np-btn[data-n]').forEach(function(b){
-      b.onclick=function(){if(G.answered)return;SFX.num();if(G.input.length<3){G.input+=b.dataset.n;document.getElementById('qBlank').textContent=G.input||'?'}}
-    });
-    document.getElementById('npDel').onclick=function(){G.input=G.input.slice(0,-1);document.getElementById('qBlank').textContent=G.input||'?'};
-    document.getElementById('npOk').onclick=function(){if(!G.input||G.answered)return;handleAns(parseInt(G.input)===q.ans,q,null)};
-  }else{
-    var choices=genChoices(q.ans,spread);
-    var html='<div class="ans-grid">';
-    choices.forEach(function(c){html+='<button class="ans-btn" data-v="'+c+'">'+c+'</button>'});
-    html+='</div>';
-    ansEl.innerHTML=html;
-    ansEl.querySelectorAll('.ans-btn').forEach(function(b){
-      b.onclick=function(){if(G.answered)return;SFX.tap();handleAns(parseInt(b.dataset.v)===q.ans,q,b)}
-    });
+  if(useNumpad)renderNumpad(q);
+  else renderChoices(q,genChoices(q.ans,spread));
+}
+
+// ── Word problem rendering ──
+function renderWordQ(q){
+  document.getElementById('conceptPanel').innerHTML='';
+  // Scene illustration
+  var sceneHtml=wpSceneSVG(q);
+  var html='<div class="q-lbl">第 '+(G.qi+1)+' 题 · 应用题 <span class="q-lbl-en">Word Problem</span></div>'
+    +sceneHtml
+    +'<div class="wp-text">'+q.text+'</div>';
+  document.getElementById('qCard').innerHTML=html;
+  // Multiple choice answers
+  var choices=genChoices(q.ans,Math.max(3,Math.floor(q.ans*.5)));
+  renderChoices(q,choices);
+}
+
+// ── Number sense rendering ──
+function renderSenseQ(q){
+  document.getElementById('conceptPanel').innerHTML='';
+  var html='<div class="q-lbl">第 '+(G.qi+1)+' 题 · 数感 <span class="q-lbl-en">Number Sense</span></div>';
+  if(q.sub==='count10'){
+    var dots='';
+    for(var i=0;i<q.n;i++)dots+='<span class="estimate-dot" style="font-size:1.6rem">'+q.emoji+'</span>';
+    html+='<div class="estimate-cloud">'+dots+'</div>'
+      +'<div class="hint">一共有几个 '+q.emoji+'？数一数～</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,genChoices(q.ans,2));
+    return;
   }
+  if(q.sub==='position'){
+    html+='<div class="rmb-q">'+q.a+' 在 '+q.b+' 的哪边？</div>'
+      +'<div class="hint">想一想方向！</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.choices,true);
+    return;
+  }
+  if(q.sub==='rmb'){
+    html+='<div class="rmb-q">💰 '+q.q+'</div>'
+      +'<div class="hint">想想元、角、分的关系</div>';
+    document.getElementById('qCard').innerHTML=html;
+    var rmbChoices=q.choices.map(String);
+    renderChoices(Object.assign({},q,{ans:String(q.ans)}),rmbChoices,true);
+    return;
+  }
+  if(q.sub==='compare'){
+    html+='<div class="sense-cmp"><div class="sense-num">'+q.a+'</div><div class="sense-op" id="qBlank">?</div><div class="sense-num">'+q.b+'</div></div>'
+      +'<div class="hint">谁大谁小？用 &gt; 、&lt; 或 = 比较</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.choices,true);
+    return;
+  }
+  if(q.sub==='maketen'){
+    var dots='';
+    for(var i=0;i<10;i++){
+      dots+='<span class="ten-cell'+(i<q.a?' f':'')+'"></span>';
+    }
+    html+='<div class="ten-frame">'+dots+'</div>'
+      +'<div class="q-expr"><span>'+q.a+'</span><span class="q-op">+</span><span class="q-blank" id="qBlank">?</span><span class="q-op">=</span><span>10</span></div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,genChoices(q.ans,3));
+    return;
+  }
+  if(q.sub==='order'){
+    var nums=q.nums.map(function(n){return '<span class="num-bubble">'+n+'</span>'}).join('');
+    html+='<div class="num-row">'+nums+'</div>'
+      +'<div class="hint">从小到大排队，最小的应该是哪个？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    // Answer = smallest number
+    var smallest=q.ans[0];
+    var distractors=q.nums.filter(function(n){return n!==smallest});
+    var choices=shuffle([smallest].concat(distractors.slice(0,3)));
+    // Override: temporarily set q.ans to smallest for this question
+    var qWithSimpleAns=Object.assign({},q,{ans:smallest});
+    renderChoices(qWithSimpleAns,choices);
+    return;
+  }
+  if(q.sub==='placevalue'){
+    html+='<div class="big-num">'+q.n+'</div>'
+      +'<div class="pv-row">'
+      +'<div class="pv-cell"><div class="pv-lbl">十位</div><div class="pv-val">'+q.tens+'</div></div>'
+      +'<div class="pv-cell"><div class="pv-lbl">个位</div><div class="pv-val">'+q.ones+'</div></div>'
+      +'</div>'
+      +'<div class="hint">这个数的'+(q.ask==='tens'?'<b>十位</b>':'<b>个位</b>')+'是多少？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,genChoices(q.ans,3));
+    return;
+  }
+  if(q.sub==='estimate'){
+    var dots='';
+    for(var i=0;i<q.actual;i++)dots+='<span class="estimate-dot">⭐</span>';
+    html+='<div class="estimate-cloud">'+dots+'</div>'
+      +'<div class="hint">大概有多少颗星星？快速估一下，不用数</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.choices);
+    return;
+  }
+  if(q.sub==='numberline'){
+    html+=numberLineSVG(q.target,q.max)
+      +'<div class="hint">数轴上红点的位置代表哪个数？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    var choices=[q.target];
+    while(choices.length<4){var x=q.target+rnd(-3,3);if(x>=0&&x<=q.max&&choices.indexOf(x)<0)choices.push(x);if(choices.length>20)break}
+    renderChoices(q,shuffle(choices.slice(0,4)));
+    return;
+  }
+}
+
+// ── Measurement rendering ──
+function renderMeasureQ(q){
+  document.getElementById('conceptPanel').innerHTML='';
+  var html='<div class="q-lbl">第 '+(G.qi+1)+' 题 · 测量 <span class="q-lbl-en">Measurement</span></div>';
+  if(q.sub==='compare_length'){
+    var aw=q.a*16+30,bw=q.b*16+30;
+    html+='<svg viewBox="0 0 220 80" style="width:100%;max-width:280px;display:block;margin:8px auto">'
+      +'<rect x="10" y="20" width="'+aw+'" height="14" fill="#4CC9F0" rx="3"/>'
+      +'<text x="'+(10+aw+5)+'" y="32" font-size="12" fill="#fff" font-family="Baloo 2">A</text>'
+      +'<rect x="10" y="50" width="'+bw+'" height="14" fill="#FF6B9D" rx="3"/>'
+      +'<text x="'+(10+bw+5)+'" y="62" font-size="12" fill="#fff" font-family="Baloo 2">B</text>'
+      +'</svg>'
+      +'<div class="hint">A 和 B 哪条更长？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,['A','B'],true);
+    return;
+  }
+  if(q.sub==='clock_hour'||q.sub==='clock_min'){
+    html+=clockSVG(q.h,q.m)
+      +'<div class="hint">现在是几点？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    var choices=[q.ans];
+    while(choices.length<4){
+      var hh=rnd(1,12),mm=q.sub==='clock_hour'?(rnd(0,1)*30):(rnd(1,11)*5);
+      var s=hh+':'+(mm<10?'0'+mm:mm);
+      if(choices.indexOf(s)<0)choices.push(s);
+      if(choices.length>20)break;
+    }
+    renderChoices(q,shuffle(choices.slice(0,4)),true);
+    return;
+  }
+  if(q.sub==='graph'){
+    var graph='<div class="bar-graph">';
+    q.cats.forEach(function(c){
+      var bars='';
+      for(var i=0;i<c[1];i++)bars+='<span class="bg-cell">'+c[0]+'</span>';
+      graph+='<div class="bg-row">'+bars+'</div>';
+    });
+    graph+='</div>';
+    html+=graph+'<div class="hint">'+(q.ask==='most'?'哪样东西<b>最多</b>？':'哪样东西<b>最少</b>？')+'</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,shuffle(q.cats.map(function(c){return c[0]})),true);
+    return;
+  }
+  if(q.sub==='calendar'){
+    if(q.ask==='days'){
+      var MONTH_NAMES=['','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      html+='<div class="rmb-q">📅 '+MONTH_NAMES[q.month]+'有几天？</div>'
+        +'<div class="hint">想想大月、小月还是二月</div>';
+    } else {
+      html+='<div class="rmb-q">📅 今天是'+q.today+'<br>再过'+q.after+'天是星期几？</div>'
+        +'<div class="hint">数一数日历上的格子</div>';
+    }
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.choices,true);
+    return;
+  }
+  if(q.sub==='length_unit'){
+    html+='<div class="rmb-q">📐 '+q.thing+' 大约有多长？</div>'
+      +'<div class="hint">想想这个东西的实际大小</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,['厘米','米'],true);
+    return;
+  }
+}
+
+// ── Geometry rendering ──
+function renderGeomQ(q){
+  document.getElementById('conceptPanel').innerHTML='';
+  var html='<div class="q-lbl">第 '+(G.qi+1)+' 题 · 形状 <span class="q-lbl-en">Shapes</span></div>';
+  if(q.sub==='directions'){
+    html+='<div class="rmb-q" style="font-size:1rem;line-height:1.7">'+q.q+'</div>'
+      +'<div class="hint">想一想方向关系</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.choices,true);
+    return;
+  }
+  if(q.sub==='solid'){
+    html+='<div class="big-emoji">'+q.emoji+'</div>'
+      +'<div class="wp-text">特点：'+q.features+'</div>'
+      +'<div class="hint">这个立体图形叫什么名字？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.choices,true);
+    return;
+  }
+  if(q.sub==='identify'){
+    html+=shapeSVG(q.ans,120)
+      +'<div class="hint">这是什么形状？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    var SHAPE_NAMES={circle:'圆形',triangle:'三角形',square:'正方形',rectangle:'长方形',star:'星形',heart:'心形',hexagon:'六边形'};
+    renderChoices(q,q.choices.map(function(s){return SHAPE_NAMES[s]||s}).slice(0,4),true,
+      q.choices.map(function(s){return SHAPE_NAMES[s]||s}).indexOf(SHAPE_NAMES[q.ans]),
+      SHAPE_NAMES[q.ans]);
+    return;
+  }
+  if(q.sub==='count'){
+    var shapes='';
+    var keys=Object.keys(q.counts);
+    var pos=0;
+    keys.forEach(function(k){
+      for(var i=0;i<q.counts[k];i++){
+        var x=20+(pos%5)*45;
+        var y=20+Math.floor(pos/5)*45;
+        shapes+='<g transform="translate('+x+','+y+')">'+shapeInline(k,30)+'</g>';
+        pos++;
+      }
+    });
+    html+='<svg viewBox="0 0 240 '+(20+Math.ceil(pos/5)*45)+'" style="width:100%;max-width:280px;display:block;margin:8px auto;background:rgba(255,255,255,.04);border-radius:12px">'+shapes+'</svg>'
+      +'<div class="hint">图中有几个 <b>'+q.name+'</b>？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,genChoices(q.ans,2));
+    return;
+  }
+  if(q.sub==='symmetry'){
+    html+='<div class="big-emoji">'+q.emoji+'</div>'
+      +'<div class="hint">这个图形<b>对折</b>后两边一样吗？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,['对称','不对称'],true,q.ans?0:1,q.ans?'对称':'不对称');
+    return;
+  }
+  if(q.sub==='compose'){
+    var subj=q.tri?(q.tri+' 个 三角形 △'):(q.sq+' 个 正方形 □');
+    html+='<div class="compose-q">'+subj+'</div>'
+      +'<div class="hint">能拼成什么？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.opts,true);
+    return;
+  }
+}
+
+// ── Logic rendering ──
+function renderLogicQ(q){
+  document.getElementById('conceptPanel').innerHTML='';
+  var html='<div class="q-lbl">第 '+(G.qi+1)+' 题 · 思维 <span class="q-lbl-en">Logic</span></div>';
+  if(q.sub==='pattern'){
+    html+='<div class="pattern-row">'
+      +q.seq.map(function(n){return '<span class="pat-num">'+n+'</span>'}).join('<span class="pat-arrow">→</span>')
+      +'<span class="pat-arrow">→</span>'
+      +'<span class="pat-num pat-q">?</span>'
+      +'</div>'
+      +'<div class="hint">找规律：下一个是什么？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,genChoices(q.ans,2));
+    return;
+  }
+  if(q.sub==='oddout'){
+    html+='<div class="hint" style="margin-bottom:8px">下面 4 个里，哪一个跟其他不一样？</div>'
+      +'<div class="oo-grid">'
+      +q.items.map(function(it){return '<div class="oo-item" data-v="'+it+'">'+it+'</div>'}).join('')
+      +'</div>';
+    document.getElementById('qCard').innerHTML=html;
+    document.getElementById('ansArea').innerHTML='';
+    document.querySelectorAll('.oo-item').forEach(function(b){
+      b.onclick=function(){if(G.answered)return;SFX.tap();handleAns(b.dataset.v===q.ans,q,b)};
+    });
+    return;
+  }
+  if(q.sub==='truefalse'){
+    html+='<div class="tf-stmt">'+q.stmt+'</div>'
+      +'<div class="hint">这句话对吗？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,['对 ✓','错 ✗'],true,q.ans?0:1,q.ans?'对 ✓':'错 ✗');
+    return;
+  }
+  if(q.sub==='classify'){
+    html+='<div class="hint" style="margin-bottom:8px">下面哪个 <b>不是</b> '+q.label+'？</div>'
+      +'<div class="oo-grid">'
+      +q.items.map(function(it){return '<div class="oo-item" data-v="'+it+'">'+it+'</div>'}).join('')
+      +'</div>';
+    document.getElementById('qCard').innerHTML=html;
+    document.getElementById('ansArea').innerHTML='';
+    document.querySelectorAll('.oo-item').forEach(function(b){
+      b.onclick=function(){if(G.answered)return;SFX.tap();handleAns(b.dataset.v===q.ans,q,b)};
+    });
+    return;
+  }
+  if(q.sub==='numguess'){
+    html+='<div class="hints-list">'
+      +q.hints.map(function(h){return '<div class="hint-line">🔍 '+h+'</div>'}).join('')
+      +'</div>'
+      +'<div class="hint">我是哪个数？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,genChoices(q.ans,3));
+    return;
+  }
+  if(q.sub==='pattern_shape'){
+    html+='<div class="pattern-row">'
+      +q.seq.map(function(n){return '<span class="pat-num" style="font-size:1.6rem">'+n+'</span>'}).join('<span class="pat-arrow">→</span>')
+      +'<span class="pat-arrow">→</span>'
+      +'<span class="pat-num pat-q" style="font-size:1.6rem">?</span>'
+      +'</div>'
+      +'<div class="hint">找规律：下一个是什么？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.allChoices,true);
+    return;
+  }
+  if(q.sub==='arith_pattern'){
+    html+='<div class="pattern-row">'
+      +q.seq.map(function(n){return '<span class="pat-num">'+n+'</span>'}).join('<span class="pat-arrow">→</span>')
+      +'<span class="pat-arrow">→</span>'
+      +'<span class="pat-num pat-q">?</span>'
+      +'</div>'
+      +'<div class="hint">每次'+(q.isDouble?'乘以2':q.step)+'，下一个是什么？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,q.choices||genChoices(q.ans,Math.max(3,q.ans/5|0)));
+    return;
+  }
+  if(q.sub==='sort_logic'){
+    var items=q.items.map(function(it){return '<span class="num-bubble" style="font-size:1rem;width:auto;padding:0 12px;border-radius:10px">'+it+'</span>'}).join('');
+    html+='<div class="num-row" style="flex-wrap:wrap;gap:8px">'+items+'</div>'
+      +'<div class="hint">按"'+q.ask+'"，第一个应该是哪个？</div>';
+    document.getElementById('qCard').innerHTML=html;
+    renderChoices(q,shuffle(q.items.slice()),true);
+    return;
+  }
+}
+
+// ── Answer choice helpers ──
+function renderNumpad(q){
+  var ansEl=document.getElementById('ansArea');
+  var html='<div class="numpad">';
+  [7,8,9,4,5,6,1,2,3].forEach(function(n){html+='<button class="np-btn" data-n="'+n+'">'+n+'</button>'});
+  html+='<button class="np-btn np-del" id="npDel">⌫</button><button class="np-btn" data-n="0">0</button><button class="np-btn np-ok" id="npOk">✓</button></div>';
+  ansEl.innerHTML=html;
+  ansEl.querySelectorAll('.np-btn[data-n]').forEach(function(b){
+    b.onclick=function(){if(G.answered)return;SFX.num();if(G.input.length<3){G.input+=b.dataset.n;document.getElementById('qBlank').textContent=G.input||'?'}}
+  });
+  document.getElementById('npDel').onclick=function(){G.input=G.input.slice(0,-1);document.getElementById('qBlank').textContent=G.input||'?'};
+  document.getElementById('npOk').onclick=function(){if(!G.input||G.answered)return;handleAns(parseInt(G.input)===q.ans,q,null)};
+}
+
+// renderChoices(q, choices, stringMode?, ansIdx?, ansLabel?)
+//   stringMode: true if choices are strings to compare directly
+//   ansIdx + ansLabel: for cases where q.ans needs translating to a label (used by geom/symmetry)
+function renderChoices(q,choices,stringMode,ansIdxOverride,ansLabelOverride){
+  var ansEl=document.getElementById('ansArea');
+  var html='<div class="ans-grid">';
+  choices.forEach(function(c){html+='<button class="ans-btn" data-v="'+c+'">'+c+'</button>'});
+  html+='</div>';
+  ansEl.innerHTML=html;
+  var ansVal=ansLabelOverride!==undefined?ansLabelOverride:q.ans;
+  ansEl.querySelectorAll('.ans-btn').forEach(function(b){
+    b.onclick=function(){
+      if(G.answered)return;
+      SFX.tap();
+      var picked=b.dataset.v;
+      var ok;
+      if(stringMode)ok=(picked===String(ansVal));
+      else ok=(parseInt(picked)===ansVal);
+      handleAns(ok,q,b);
+    };
+  });
 }
 
 function handleAns(ok,q,btn){
@@ -1137,6 +2457,9 @@ function showFeedback(ok,q){
   var pose=ok?(G.streak>=5?'power':'victory'):'sad';
   var msg=ok?PRAISE[rnd(0,PRAISE.length-1)]:OOPS[rnd(0,OOPS.length-1)];
 
+  // User preference: show solving thinking? (per-session toggle, default true)
+  var SHOW_THINKING=(function(){try{var v=localStorage.getItem('showThinking');return v==='0'?false:true}catch(e){return true}})();
+
   var streakHtml='';
   if(ok&&G.streak>=3){var sm=STREAKS[Math.min(G.streak,7)]||STREAKS[7];
     streakHtml='<div class="fb-streak" style="background:'+sm.bg+';color:'+sm.c+'">'+sm.t+'</div>'}
@@ -1149,29 +2472,60 @@ function showFeedback(ok,q){
       +'</div>';
   }).join('');
 
-  // Create overlay
+  // Format wrong answer display (handle string answers from new modules)
+  var ansDisplay=q.ans;
+  if(typeof q.ans==='object'&&q.ans!==null){
+    if(Array.isArray(q.ans))ansDisplay=q.ans.join(', ');
+    else ansDisplay=String(q.ans);
+  }
+
   var ov=document.createElement('div');
   ov.className='fb-overlay';
   ov.innerHTML=
     '<div class="fb-sheet" id="fbSheet">'
     +'<div class="fb-top">'
     +'<div style="flex-shrink:0">'+heroSVG(60,60,pose)+'</div>'
-    +'<div><div class="fb-verdict" style="color:'+(ok?'var(--g)':'var(--r)')+'">'+msg+'</div>'
-    +(!ok?'<div class="fb-wrong-ans">正确答案 <strong style="color:var(--y)">'+q.ans+'</strong></div>':'')
+    +'<div style="flex:1"><div class="fb-verdict" style="color:'+(ok?'var(--g)':'var(--r)')+'">'+msg+'</div>'
+    +(!ok?'<div class="fb-wrong-ans">正确答案 <strong style="color:var(--y)">'+ansDisplay+'</strong></div>':'')
     +streakHtml+'</div>'
     +'</div>'
-    +'<div class="fb-steps-title">解题思路</div>'
+    // Skip-thinking toggle (the feature you asked for: 培养孩子学习解题思路)
+    +'<button class="fb-skip-btn'+(SHOW_THINKING?'':' hidden-mode')+'" id="fbSkipBtn">'
+    + (SHOW_THINKING?'💡 收起解题思路':'📖 展开解题思路')
+    +'</button>'
+    +'<div id="fbThinkingBlock" style="display:'+(SHOW_THINKING?'flex':'none')+';flex-direction:column;gap:10px;flex-shrink:1;min-height:0">'
+    +'<div class="fb-steps-title">解题思路 <span style="font-weight:700;color:#a78bfa;font-size:.68rem">Solution Steps</span></div>'
     +'<div class="fb-steps">'+stepsHtml+'</div>'
     +'<div class="fb-voice-row">'
     +'<button class="v-btn" id="fbVBtn"><span id="fbVIco">🔊</span><span id="fbVLbl"> 听讲解</span></button>'
     +'<div class="v-prog"><div class="v-bar" id="fbVBar"></div></div>'
+    +'</div>'
     +'</div>'
     +'<button class="fb-next" id="fbNext">'+(ok?'继续下一题 →':'再加油 →')+'</button>'
     +'</div>';
 
   document.body.appendChild(ov);
 
-  // ── NEXT BUTTON — always works, no dependency on speech ──
+  // Skip-thinking toggle handler
+  document.getElementById('fbSkipBtn').onclick=function(){
+    SFX.tap();
+    var current=localStorage.getItem('showThinking')==='0'?false:true;
+    var next=!current;
+    try{localStorage.setItem('showThinking',next?'1':'0')}catch(e){}
+    var block=document.getElementById('fbThinkingBlock');
+    var btn=document.getElementById('fbSkipBtn');
+    if(next){
+      block.style.display='flex';
+      btn.textContent='💡 收起解题思路';
+      btn.classList.remove('hidden-mode');
+    }else{
+      block.style.display='none';
+      btn.textContent='📖 展开解题思路';
+      btn.classList.add('hidden-mode');
+      stopSpeech();
+    }
+  };
+
   document.getElementById('fbNext').onclick=function(){
     stopSpeech();
     ov.remove();
@@ -1179,12 +2533,15 @@ function showFeedback(ok,q){
     renderQ();
   };
 
-  // ── VOICE ──
+  // Voice — only auto-play if (a) thinking is shown AND (b) user hasn't disabled audio
+  // Per your request: default OFF voice, manual click to play
   var playing=false;
+  if(!SHOW_THINKING)return;
   var vBar=document.getElementById('fbVBar');
   var vBtn=document.getElementById('fbVBtn');
   var vIco=document.getElementById('fbVIco');
   var vLbl=document.getElementById('fbVLbl');
+  if(!vBtn)return;
 
   function startVoice(){
     if(playing){stopSpeech();stopUI();return}
@@ -1206,7 +2563,7 @@ function showFeedback(ok,q){
     vBar.style.width='0%';
   }
   vBtn.onclick=startVoice;
-  setTimeout(startVoice,350);
+  // No more setTimeout(startVoice, 350) — voice OFF by default per your request
 }
 
 // ═══════════════════════════════════
@@ -1227,6 +2584,7 @@ function endGame(){
     '<div style="'+(stars>=3?'animation:float 2s ease-in-out infinite;display:inline-block':'')+'">'
     +buildSVG(88,88,h,stars>=3?'victory':'normal')+'</div>'
     +'<div style="font-family:var(--fd);font-size:1.28rem;font-weight:800;margin-top:8px">'+G.lv.nm+'</div>'
+    +(G.lv.en?'<div style="font-size:.75rem;color:var(--dim);font-weight:700;margin-top:2px">'+G.lv.en+'</div>':'')
     +'<div class="result-stars">'+'⭐'.repeat(stars)+'☆'.repeat(3-stars)+'</div>'
     +'<div class="result-score">'+G.score+' 分</div>'
     +'<div style="font-family:var(--fd);font-size:1rem;color:'+(stars>=3?'var(--y)':'var(--text)')+'">'+msgs[stars]+'</div>'
@@ -1258,6 +2616,222 @@ function confetti(n){
   }
   setTimeout(function(){wrap.remove()},2900);
 }
+
+// ═══════════════════════════════════════════════════════
+// KNOWLEDGE MAP — 🌌 星座式技能树
+// ═══════════════════════════════════════════════════════
+// Knowledge nodes: each has an id (matching a level id), a constellation group,
+// coordinates in the SVG canvas, and curriculum metadata for the parent panel.
+var KNOWLEDGE_NODES = (function(){
+  // Returns array of node descriptors with SVG coordinates baked in
+  // Layout: 4 constellations arranged in quadrants
+  // Each constellation = one curriculum domain (人教版四大领域)
+  var nodes = [
+    // ── 数与运算 (top-left) ──
+    {id:'a1',  cx:135,  cy:90,  r:13, label:'10以内加法',labelEn:'Add ≤10',  grade:'K',  domain:'数与运算', color:'#4ECDC4', curriculum:'人教版一年级上册·5以内加法'},
+    {id:'a2',  cx:90,  cy:142,  r:11, label:'10以内减法',labelEn:'Sub ≤10',  grade:'K',  domain:'数与运算', color:'#4ECDC4', curriculum:'人教版一年级上册·5以内减法'},
+    {id:'a3',  cx:180, cy:142,  r:11, label:'10以内混合',labelEn:'Add & Sub',  grade:'K',  domain:'数与运算', color:'#4ECDC4', curriculum:'人教版一年级上册·综合练习'},
+    {id:'a4',  cx:112,  cy:202, r:13, label:'20以内加法',labelEn:'Add ≤20',  grade:'G1', domain:'数与运算', color:'#4ECDC4', curriculum:'人教版一年级下册·进位加法'},
+    {id:'a5',  cx:180, cy:202, r:11, label:'20以内减法',labelEn:'Sub ≤20',  grade:'G1', domain:'数与运算', color:'#4ECDC4', curriculum:'人教版一年级下册·退位减法'},
+    {id:'a6',  cx:142,  cy:255, r:11, label:'20以内混合',labelEn:'Mixed',  grade:'G1', domain:'数与运算', color:'#4ECDC4', curriculum:'人教版一年级综合'},
+    {id:'a7',  cx:90,  cy:308, r:13, label:'50以内加法',labelEn:'Add ≤50',  grade:'G2', domain:'数与运算', color:'#4ECDC4', curriculum:'人教版二年级·100以内加减法(一)'},
+    {id:'a8',  cx:165, cy:308, r:11, label:'50以内减法',labelEn:'Sub ≤50',  grade:'G2', domain:'数与运算', color:'#4ECDC4', curriculum:'人教版二年级·100以内加减法(二)'},
+    {id:'m1',  cx:98,  cy:368, r:13, label:'乘法理解',labelEn:'Multiply',    grade:'G2', domain:'数与运算', color:'#C77DFF', curriculum:'人教版二年级下册·表内乘法(一)'},
+    {id:'m6',  cx:172, cy:368, r:11, label:'乘法口诀',labelEn:'Times Tables',    grade:'G2', domain:'数与运算', color:'#C77DFF', curriculum:'人教版二年级下册·表内乘法(二)'},
+    {id:'m7',  cx:135,  cy:428, r:13, label:'除法理解',labelEn:'Division',    grade:'G3', domain:'数与运算', color:'#C77DFF', curriculum:'人教版二年级下册·表内除法(一)'},
+    {id:'m10', cx:135,  cy:480, r:11, label:'乘除混合',labelEn:'× ÷ Mix',    grade:'G3', domain:'数与运算', color:'#C77DFF', curriculum:'人教版三年级·乘除法综合'},
+
+    // ── 数量关系/数感 (top-right) ──
+    {id:'s3',  cx:480, cy:90,  r:13, label:'凑成十',labelEn:'Make Ten',      grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版一年级·凑十法'},
+    {id:'s1',  cx:420, cy:142,  r:11, label:'比大小',labelEn:'Compare',      grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版一年级·数的大小比较'},
+    {id:'s5',  cx:525, cy:142,  r:13, label:'数位认识',labelEn:'Place Value',    grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版一年级·100以内数的认识'},
+    {id:'s7',  cx:472, cy:202, r:13, label:'认识人民币',labelEn:'Money',  grade:'G1', domain:'数量关系', color:'#FFD93D', curriculum:'人教版一年级下册·认识人民币(必考)'},
+    {id:'w4',  cx:412, cy:255, r:11, label:'购物找零',labelEn:'Change',    grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版一年级·人民币应用'},
+    {id:'w1',  cx:532, cy:255, r:11, label:'加法应用',labelEn:'Add Story',    grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版一年级·加法应用题'},
+    {id:'w2',  cx:442, cy:315, r:11, label:'减法应用',labelEn:'Sub Story',    grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版一年级·减法应用题'},
+    {id:'w3',  cx:518, cy:315, r:11, label:'比多比少',labelEn:'More/Less',    grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版一年级·比较多少'},
+    {id:'w5',  cx:480, cy:382, r:11, label:'平均分',labelEn:'Share',      grade:'G1', domain:'数量关系', color:'#FF6B35', curriculum:'人教版二年级·平均分(除法前置)'},
+    {id:'s6',  cx:428, cy:442, r:11, label:'估一估',labelEn:'Estimate',      grade:'G2', domain:'数量关系', color:'#FF6B35', curriculum:'人教版二年级·估算'},
+    {id:'w6',  cx:518, cy:442, r:13, label:'综合应用',labelEn:'Multi-step',    grade:'G2', domain:'数量关系', color:'#FF6B35', curriculum:'人教版二年级·两步应用题'},
+
+    // ── 图形与几何 (bottom-left) ──
+    {id:'g1',  cx:120,  cy:570, r:13, label:'认识图形',labelEn:'2D Shapes',    grade:'G1', domain:'图形与几何', color:'#6BCB77', curriculum:'人教版一年级上册·认识图形(一)'},
+    {id:'g3',  cx:188, cy:570, r:11, label:'对称',labelEn:'Symmetry',        grade:'G1', domain:'图形与几何', color:'#6BCB77', curriculum:'人教版二年级上册·轴对称图形'},
+    {id:'g5',  cx:90,  cy:622, r:11, label:'立体图形',labelEn:'3D Shapes',    grade:'G1', domain:'图形与几何', color:'#6BCB77', curriculum:'人教版一年级上册·认识立体图形'},
+    {id:'g2',  cx:165, cy:660, r:11, label:'数形状',labelEn:'Count Shapes',      grade:'G1', domain:'图形与几何', color:'#6BCB77', curriculum:'人教版一年级·图形数数'},
+    {id:'me1', cx:225, cy:600, r:11, label:'长短比较',labelEn:'Length',    grade:'G1', domain:'图形与几何', color:'#6BCB77', curriculum:'人教版一年级上册·比长短'},
+    {id:'me6', cx:135,  cy:715, r:13, label:'厘米和米',labelEn:'cm & m',    grade:'G2', domain:'图形与几何', color:'#6BCB77', curriculum:'人教版二年级上册·长度单位(重点)'},
+    {id:'g4',  cx:210, cy:720, r:11, label:'拼图形',labelEn:'Compose',      grade:'G2', domain:'图形与几何', color:'#6BCB77', curriculum:'人教版二年级·图形拼组'},
+
+    // ── 统计与时间 (bottom-right) ──
+    {id:'me2', cx:450, cy:570, r:13, label:'认识时间',labelEn:'Time',    grade:'G1', domain:'统计实践', color:'#FF6B9D', curriculum:'人教版一年级下册·认识时间(整时半时)'},
+    {id:'me5', cx:525, cy:570, r:11, label:'认识日历',labelEn:'Calendar',    grade:'G1', domain:'统计实践', color:'#FF6B9D', curriculum:'人教版一年级下册·认识月日'},
+    {id:'me3', cx:488, cy:660, r:11, label:'简单统计',labelEn:'Charts',    grade:'G1', domain:'统计实践', color:'#FF6B9D', curriculum:'人教版一年级·统计初步(看图表)'},
+    {id:'l1',  cx:420, cy:700, r:11, label:'数字规律',labelEn:'Patterns',    grade:'G1', domain:'统计实践', color:'#FFD93D', curriculum:'人教版一年级·找规律'},
+    {id:'l2',  cx:442, cy:745, r:11, label:'找不一样',labelEn:'Odd One Out',    grade:'G1', domain:'统计实践', color:'#FFD93D', curriculum:'人教版一年级·分类与整理'},
+    {id:'l3',  cx:518, cy:745, r:11, label:'判断对错',labelEn:'True/False',    grade:'G1', domain:'统计实践', color:'#FFD93D', curriculum:'思维训练·判断推理'},
+    {id:'me4', cx:480, cy:795, r:13, label:'几点几分',labelEn:'Minutes',    grade:'G2', domain:'统计实践', color:'#FF6B9D', curriculum:'人教版二年级上册·时、分、秒'},
+    {id:'l4',  cx:412, cy:795, r:11, label:'分类',labelEn:'Classify',        grade:'G2', domain:'统计实践', color:'#FFD93D', curriculum:'人教版二年级·分类与整理'},
+    {id:'l7',  cx:540, cy:795, r:11, label:'加减规律',labelEn:'Patterns',    grade:'G2', domain:'统计实践', color:'#FFD93D', curriculum:'人教版二年级·找规律'},
+  ];
+
+  // Connections (edges) — draw lines between related knowledge points
+  var edges = [
+    ['a1','a2'],['a1','a3'],['a2','a4'],['a3','a4'],['a4','a5'],['a4','a6'],['a5','a6'],
+    ['a6','a7'],['a6','a8'],['a7','m1'],['m1','m6'],['m6','m7'],['m7','m10'],
+    ['s3','s1'],['s3','s5'],['s1','s7'],['s5','s7'],['s7','w4'],['s1','w1'],['s1','w2'],
+    ['w1','w3'],['w2','w3'],['w3','w5'],['w5','s6'],['s6','w6'],
+    ['g1','g3'],['g1','g5'],['g1','g2'],['g5','me1'],['me1','me6'],['g3','g4'],['me6','g4'],
+    ['me2','me5'],['me2','me3'],['me3','l2'],['me5','l1'],['l1','l3'],['me3','me4'],['l2','l4'],['l1','l7'],
+  ];
+
+  return {nodes:nodes, edges:edges};
+})();
+
+function openKnowledgeMap(){
+  var data=KNOWLEDGE_NODES;
+  var W=650,H=870;
+
+  // Compute node states from progress
+  function nodeState(id){
+    var p=G.prog[id];
+    if(!p||!p.stars)return'locked';
+    if(p.stars>=2)return'mastered';
+    return'learning';
+  }
+
+  // Build SVG
+  var svgLines='',svgNodes='',svgLabels='';
+
+  // Draw edges
+  var nodeMap={};
+  data.nodes.forEach(function(n){nodeMap[n.id]=n;});
+  data.edges.forEach(function(e){
+    var a=nodeMap[e[0]],b=nodeMap[e[1]];
+    if(!a||!b)return;
+    var sa=nodeState(e[0]),sb=nodeState(e[1]);
+    var bothUnlocked=(sa!=='locked'||sb!=='locked');
+    svgLines+='<line x1="'+a.cx+'" y1="'+a.cy+'" x2="'+b.cx+'" y2="'+b.cy+'"'
+      +' stroke="'+(bothUnlocked?'rgba(255,255,255,.25)':'rgba(255,255,255,.08)')+'" stroke-width="'+(bothUnlocked?1.5:1)+'" stroke-dasharray="'+(bothUnlocked?'none':'4,4')+'"/>';
+  });
+
+  // Draw nodes
+  data.nodes.forEach(function(n){
+    var state=nodeState(n.id);
+    var fill=state==='mastered'?n.color:state==='learning'?n.color+'88':'rgba(255,255,255,.1)';
+    var stroke=state==='mastered'?'#FFD700':state==='learning'?n.color:'rgba(255,255,255,.2)';
+    var glow=state==='mastered'?'filter:drop-shadow(0 0 6px '+n.color+')':'';
+    var badge=state==='mastered'?'<text x="'+n.cx+'" y="'+(n.cy-n.r-3)+'" text-anchor="middle" font-size="10">✓</text>':'';
+    svgNodes+='<g class="map-node" data-id="'+n.id+'" style="'+glow+'">'
+      +'<circle cx="'+n.cx+'" cy="'+n.cy+'" r="'+n.r+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="2"/>'
+      +(state==='mastered'?'<circle cx="'+n.cx+'" cy="'+n.cy+'" r="'+(n.r+4)+'" fill="none" stroke="'+n.color+'44" stroke-width="2"/>':'')
+      +badge
+      +'</g>';
+    // Label (only for mastered or grade-unlocked)
+    var labelY=n.cy+n.r+12;
+    var labelOpacity=state==='locked'?0.3:0.85;
+    svgLabels+='<text x="'+n.cx+'" y="'+labelY+'" text-anchor="middle" font-size="9.5" font-family="Baloo 2,sans-serif" font-weight="700" fill="rgba(255,255,255,'+labelOpacity+')">'+n.label+'</text>';
+    if(n.labelEn){
+      svgLabels+='<text x="'+n.cx+'" y="'+(labelY+11)+'" text-anchor="middle" font-size="8" font-family="Baloo 2,sans-serif" font-weight="600" fill="rgba(167,139,250,'+(state==='locked'?0.2:0.65)+')">'+n.labelEn+'</text>';
+    }
+  });
+
+  // Domain group labels
+  var domainLabels=[
+    {x:90,y:30,label:'✦ 数与运算',color:'#4ECDC4'},
+    {x:315,y:30,label:'✦ 数量关系',color:'#FF6B35'},
+    {x:90,y:355,label:'✦ 图形几何',color:'#6BCB77'},
+    {x:315,y:355,label:'✦ 统计实践',color:'#FF6B9D'},
+  ];
+  var svgDomains=domainLabels.map(function(d){
+    return '<text x="'+d.x+'" y="'+d.y+'" text-anchor="middle" font-size="12" font-family="Baloo 2,sans-serif" font-weight="900" fill="'+d.color+'" opacity=".9">'+d.label+'</text>';
+  }).join('');
+
+  // Stats bar
+  var total=data.nodes.length;
+  var mastered=data.nodes.filter(function(n){return nodeState(n.id)==='mastered';}).length;
+  var learning=data.nodes.filter(function(n){return nodeState(n.id)==='learning';}).length;
+
+  var wrap=document.getElementById('mapSvgWrap');
+  wrap.innerHTML='<div style="text-align:center;margin-bottom:8px;font-size:.78rem;color:var(--dim)">'
+    +'<span style="color:#FFD700;font-weight:800">⭐ 已掌握 '+mastered+'</span>'
+    +' · <span style="color:var(--c);font-weight:800">📖 学习中 '+learning+'</span>'
+    +' · <span>共 '+total+' 个知识点</span>'
+    +'</div>'
+    +'<svg id="mapSvg" viewBox="0 0 '+W+' '+H+'" style="width:100%;max-width:'+W+'px;display:block;margin:0 auto">'
+    +'<rect width="'+W+'" height="'+H+'" fill="rgba(10,10,30,.6)" rx="16"/>'
+    // faint grid / star field
+    +'<g opacity=".15">'
+    +Array.from({length:30}).map(function(){return '<circle cx="'+rnd(0,W)+'" cy="'+rnd(0,H)+'" r="'+rnd(1,2)+'" fill="white" opacity="'+(.3+Math.random()*.7).toFixed(2)+'"/>';}).join('')
+    +'</g>'
+    +svgLines+svgNodes+svgLabels+svgDomains
+    +'</svg>';
+
+  // Node click → popup
+  document.querySelectorAll('.map-node').forEach(function(el){
+    el.onclick=function(){
+      SFX.tap();
+      var id=el.dataset.id;
+      var node=nodeMap[id];
+      if(!node)return;
+      var state=nodeState(id);
+      var p=G.prog[id]||{};
+
+      // Remove existing popup
+      var old=document.getElementById('mapPopup');
+      if(old)old.remove();
+
+      var stars=p.stars||0;
+      var starStr=stars?'⭐'.repeat(stars)+'☆'.repeat(3-stars):'☆☆☆';
+      var pop=document.createElement('div');
+      pop.id='mapPopup';
+      pop.className='map-popup';
+      pop.innerHTML='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">'
+        +'<div>'
+        +'<div class="mp-title">'+node.label+'</div>'
+        +'<div class="mp-grade" style="color:'+node.color+'">'+GRADES[node.grade].nm+' · '+node.domain+'</div>'
+        +'<div class="mp-desc">📚 '+node.curriculum+'</div>'
+        +'</div>'
+        +'<button onclick="document.getElementById(\'mapPopup\').remove()" style="background:rgba(255,255,255,.1);border:none;color:#fff;border-radius:50%;width:28px;height:28px;font-size:.9rem;cursor:pointer;flex-shrink:0">×</button>'
+        +'</div>'
+        +'<div class="mp-status">'
+        +(state==='mastered'?'<span style="color:#FFD700;font-weight:800">✓ 已掌握</span>':state==='learning'?'<span style="color:var(--c);font-weight:800">📖 学习中</span>':'<span style="color:var(--dim);font-weight:800">🔒 待解锁</span>')
+        +'<span style="margin-left:8px">'+starStr+'</span>'
+        +(p.best?'<span style="margin-left:8px;font-size:.75rem;color:var(--dim)">最高 '+p.best+' 分</span>':'')
+        +'</div>'
+        +'<button class="mp-btn'+(state==='locked'?' locked':'')+'" id="mpGoBtn">'
+        +(state==='locked'?'🔒 先完成前置关卡':'🚀 去练习这个知识点')
+        +'</button>';
+      document.body.appendChild(pop);
+
+      if(state!=='locked'){
+        document.getElementById('mpGoBtn').onclick=function(){
+          pop.remove();
+          // Find which module this level belongs to
+          for(var mk in MODULES){
+            var found=MODULES[mk].levels.find(function(l){return l.id===id;});
+            if(found){
+              G.mod=mk;
+              pop.remove();
+              show('sMap'); // stay on map momentarily
+              // Set grade to the level's grade so it shows up
+              setGrade(found.grade);
+              renderLevels();
+              return;
+            }
+          }
+        };
+      }
+
+      // Close on backdrop
+      pop.addEventListener('click',function(e){if(e.target===pop)pop.remove();});
+    };
+  });
+
+  show('sMap');
+}
+
+document.getElementById('mapBack').onclick=function(){SFX.tap();renderHome();};
 
 // ═══════════════════════════════════
 // SETTINGS DRAWER — voice diagnostic + save/restore progress
